@@ -1,0 +1,177 @@
+{
+    "header": {
+      "home": "Главная",
+      "about": "Обо мне",
+      "experience": "Опыт",
+      "skills": "Навыки",
+      "projects": "Проекты",
+      "contact": "Контакты"
+    },
+    "home": {
+      "title": "ТАПСОБА Абдул Кадер",
+      "subtitle": "Дата-сайентист | Веб и мобильный разработчик | Программный инженер",
+      "description": "Я увлечен анализом данных и инновационными решениями. Моя цель - внести вклад в стратегические проекты в качестве аналитика данных, используя свои навыки в машинном обучении, визуализации данных и прогнозировании, чтобы предсказать тенденции и добавить ценность в процессе принятия решений.",
+      "contactButton": "Связаться со мной",
+      "projectsButton": "Посмотреть мои проекты"
+    },
+    "about": {
+      "title": "Обо мне",
+      "education": {
+        "title": "Образование",
+        "certifications": {
+          "one": {
+            "title": "Microsoft Certified: Power BI Data Analyst Associate",
+            "institution": "Microsoft Learn",
+            "year": "2024"
+          },
+          "two": {
+            "title": "Магистр наук в области данных",
+            "institution": "ECOLE SUPÉRIEURE D'INFORMATIQUE",
+            "period": "2021 - 2023"
+          },
+          "three": {
+            "title": "Бакалавр информационных систем",
+            "institution": "ECOLE SUPÉRIEURE D'INFORMATIQUE",
+            "period": "2018 - 2021"
+          },
+          "four": {
+            "title": "Python full stack",
+            "institution": "Sira Labs",
+            "year": "2021"
+          }
+        }
+      },
+      "skills": {
+        "title": "Ключевые навыки",
+        "list": {
+          "one": "Анализ данных и машинное обучение с использованием Python",
+          "two": "Веб-разработка (React, Laravel, Django)",
+          "three": "Мобильная разработка (Flutter)",
+          "four": "Визуализация данных (Power BI, Streamlit)",
+          "five": "Управление базами данных (SQL, NoSQL)",
+          "six": "Управление IT-проектами"
+        }
+      }
+    },
+    "experience": {
+      "title": "Профессиональный опыт",
+      "jobs": {
+        "one": {
+          "title": "Тренер Power BI – PL-300 и PL-900",
+          "company": "Box Africa",
+          "period": "Декабрь 2024",
+          "description": "Проведение 4-дневного практического курса по использованию Power BI для анализа данных и создания интерактивных отчетов. Подготовка к сертификациям PL-300 и PL-900."
+        },
+        "two": {
+          "title": "Веб-разработчик и дата-сайентист",
+          "company": "ProsTech",
+          "period": "Апрель 2024 - Настоящее время",
+          "description": "Разработка приложения для управления и помощи в миграции в Канаду. Внедрение системы интеллектуальных рекомендаций и анализа данных для улучшения производительности приложения."
+        },
+        "three": {
+          "title": "Дата-сайентист",
+          "company": "WASCAL",
+          "period": "Февраль 2024 - Июль 2024",
+          "description": "Анализ миграции населения Буркина-Фасо из-за конфликтов и изменений климата. Разработка модели ИИ для прогнозирования миграционных потоков и инструмента для принятия решений по вопросам конфликта, миграции и продовольственной безопасности."
+        },
+        "four": {
+          "title": "Дата-сайентист",
+          "company": "WASCAL",
+          "period": "Июль 2023 - Январь 2024",
+          "description": "Сбор и подготовка метеорологических данных. Анализ данных для лучшего понимания климата в Западной Африке. Разработка системы прогнозирования температуры с использованием машинного обучения и глубокого обучения."
+        }
+      }
+    },
+    "skills": {
+      "title": "Технические навыки",
+      "programmingLanguages": {
+        "title": "Языки программирования",
+        "skills": {
+          "one": { "name": "Python", "level": 85 },
+          "two": { "name": "JavaScript", "level": 85 },
+          "three": { "name": "PHP", "level": 90 },
+          "four": { "name": "Dart", "level": 95 },
+          "five": { "name": "SQL", "level": 85 },
+          "six": { "name": "R", "level": 65 }
+        }
+      },
+      "frameworksAndTools": {
+        "title": "Фреймворки и инструменты",
+        "skills": {
+          "one": { "name": "React", "level": 80 },
+          "two": { "name": "Laravel", "level": 85 },
+          "three": { "name": "Flutter", "level": 95 },
+          "four": { "name": "Django", "level": 65 },
+          "five": { "name": "Power BI", "level": 75 },
+          "six": { "name": "Streamlit", "level": 90 }
+        }
+      }
+    },
+    "projects": {
+      "title": "Завершенные проекты",
+      "list": {
+        "one": {
+          "title": "Faso Migration",
+          "description": "Веб-платформа для анализа миграционных потоков в Буркина-Фасо и прогнозирования будущих миграций для улучшения процесса принятия решений.",
+          "technologies": ["Python", "Jupyter Notebook", "Scikit-learn", "Streamlit"]
+        },
+        "two": {
+          "title": "Климатическая модель",
+          "description": "Сбор, подготовка и анализ метеорологических данных. Разработка ИИ моделей для заполнения пропущенных данных и прогнозирования климата.",
+          "technologies": ["Python", "Matplotlib", "Seaborn", "Scikit-learn", "TensorFlow", "Keras"]
+        },
+        "three": {
+          "title": "RifkaStore",
+          "description": "Веб и мобильное приложение для электронной торговли, вдохновленное Большим рынком Уагадугу.",
+          "technologies": ["HTML", "CSS", "Uikit", "PHP", "Flutter", "MySQL"]
+        },
+        "four": {
+          "title": "Reemix Play",
+          "description": "Мобильное приложение для стриминга музыки и видео с социальными функциями.",
+          "technologies": ["Dart", "Flutter", "MySQL"],
+          "link": "https://github.com/mrtapsoba/reemix_play"
+        },
+        "five": {
+          "title": "EventBook",
+          "description": "Мобильное приложение для отслеживания, обмена и публикации событий.",
+          "technologies": ["Dart", "Flutter", "MySQL"],
+          "link": "https://github.com/mrtapsoba/eventbook-v1"
+        },
+        "six": {
+          "title": "Bon contact",
+          "description": "Профессиональная социальная сеть с мгновенным обменом сообщениями и возможностью обмена возможностями.",
+          "technologies": ["Dart", "Flutter", "Firebase"],
+          "link": "https://bit.ly/3VTOmdI"
+        }
+      }
+    },
+    "contact": {
+      "title": "Контакт",
+      "info": {
+        "title": "Контактная информация",
+        "address": "Уагадугу, Буркина-Фасо",
+        "phone": "+226 56 90 66 66",
+        "email": "ktapsoba80@gmail.com"
+      },
+      "social": {
+        "title": "Найдите меня в социальных сетях",
+        "linkedin": "https://www.linkedin.com/in/abdoul-kader-tapsoba-32b193196",
+        "github": "https://github.com/mrtapsoba"
+      },
+      "form": {
+        "title": "Отправьте мне сообщение",
+        "name": "Имя",
+        "email": "Электронная почта",
+        "message": "Сообщение",
+        "send": "Отправить"
+      }
+    },
+    "footer": {
+      "rights": "© 2025 ТАПСОБА Абдул Кадер. Все права защищены."
+    },
+    "theme": {
+      "light": "Включить светлый режим",
+      "dark": "Включить темный режим"
+    }
+  }
+  

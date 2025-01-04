@@ -68,7 +68,8 @@ const ThemeToggle = () => {
 };
 
 // Composant de menu mobile
-const MobileMenu = ({ isOpen, toggleMenu, list }) => {
+const MobileMenu = ({ isOpen, toggleMenu }) => {
+  const { t } = useTranslation();
   return (
     <motion.div
       className={`fixed inset-0 bg-gray-800 bg-opacity-75 z-50 ${isOpen ? 'block' : 'hidden'}`}
@@ -80,16 +81,48 @@ const MobileMenu = ({ isOpen, toggleMenu, list }) => {
         <button onClick={toggleMenu} className="absolute top-4 right-4 text-white">
           <FaTimes size={24} />
         </button>
-        {list.map((item) => (
-          <a
-            key={item}
-            href={`#${item.toLowerCase().replace(' ', '-')}`}
-            className="text-white text-2xl my-4"
-            onClick={toggleMenu}
-          >
-            {item}
-          </a>
-        ))}
+        <a
+          href="#home"
+          className="text-white text-2xl my-4"
+          onClick={toggleMenu}
+        >
+          {t('header.home')}
+        </a>
+        <a
+          href="#about"
+          className="text-white text-2xl my-4"
+          onClick={toggleMenu}
+        >
+          {t('header.about')}
+        </a>
+        <a
+          href="#experience"
+          className="text-white text-2xl my-4"
+          onClick={toggleMenu}
+        >
+          {t('header.experience')}
+        </a>
+        <a
+          href="#skills"
+          className="text-white text-2xl my-4"
+          onClick={toggleMenu}
+        >
+          {t('header.skills')}
+        </a>
+        <a
+          href="#projects"
+          className="text-white text-2xl my-4"
+          onClick={toggleMenu}
+        >
+          {t('header.projects')}
+        </a>
+        <a
+          href="#contact"
+          className="text-white text-2xl my-4"
+          onClick={toggleMenu}
+        >
+          {t('header.contact')}
+        </a>
       </div>
     </motion.div>
   );
@@ -107,6 +140,7 @@ function Portfolio() {
 
   const changeLanguage = (lng) => {
     i18n.changeLanguage(lng);
+    localStorage.setItem('language', lng);
   };
 
   return (
@@ -115,7 +149,7 @@ function Portfolio() {
         <header className="bg-blue-700 dark:bg-blue-900 text-white p-4 sticky top-0 z-10 transition-colors duration-300">
           <nav className="container mx-auto flex justify-between items-center">
             <motion.a 
-              href="#accueil" 
+              href="/" 
               className="text-2xl font-bold"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
@@ -123,27 +157,69 @@ function Portfolio() {
               TAPS.
             </motion.a>
             <div className="hidden md:flex space-x-4">
-              {[t('header.home'), t('header.about'), t('header.experience'), t('header.skills'), t('header.projects'), t('header.contact')].map((item) => (
+              <div className="hidden md:flex space-x-4">
                 <motion.a
-                  key={item}
-                  href={`#${item.toLowerCase().replace(' ', '-')}`}
+                  href="#home"
                   className="hover:text-blue-200 transition-colors duration-200"
                   whileHover={{ scale: 1.1 }}
                   whileTap={{ scale: 0.95 }}
                 >
-                  {item}
+                  {t('header.home')}
                 </motion.a>
-              ))}
+                <motion.a
+                  href="#about"
+                  className="hover:text-blue-200 transition-colors duration-200"
+                  whileHover={{ scale: 1.1 }}
+                  whileTap={{ scale: 0.95 }}
+                >
+                  {t('header.about')}
+                </motion.a>
+                <motion.a
+                  href="#experience"
+                  className="hover:text-blue-200 transition-colors duration-200"
+                  whileHover={{ scale: 1.1 }}
+                  whileTap={{ scale: 0.95 }}
+                >
+                  {t('header.experience')}
+                </motion.a>
+                <motion.a
+                  href="#skills"
+                  className="hover:text-blue-200 transition-colors duration-200"
+                  whileHover={{ scale: 1.1 }}
+                  whileTap={{ scale: 0.95 }}
+                >
+                  {t('header.skills')}
+                </motion.a>
+                <motion.a
+                  href="#projects"
+                  className="hover:text-blue-200 transition-colors duration-200"
+                  whileHover={{ scale: 1.1 }}
+                  whileTap={{ scale: 0.95 }}
+                >
+                  {t('header.projects')}
+                </motion.a>
+                <motion.a
+                  href="#contact"
+                  className="hover:text-blue-200 transition-colors duration-200"
+                  whileHover={{ scale: 1.1 }}
+                  whileTap={{ scale: 0.95 }}
+                >
+                  {t('header.contact')}
+                </motion.a>
+              </div>
             </div>
             <div className="flex items-center space-x-4">
               <ThemeToggle />
               <select
+                value={localStorage.getItem('language') || 'en'}
                 onChange={(e) => changeLanguage(e.target.value)}
                 className="bg-blue-600 text-white px-2 py-1 rounded"
               >
                 <option value="en">EN</option>
                 <option value="fr">FR</option>
                 <option value="es">ES</option>
+                <option value="ru">RU</option>
+                <option value="ge">GE</option>
               </select>
               <button className="md:hidden" onClick={toggleMenu}>
                 <FaBars size={24} />
@@ -155,7 +231,7 @@ function Portfolio() {
         <MobileMenu isOpen={isMenuOpen} toggleMenu={toggleMenu} list={[t('header.home'), t('header.about'), t('header.experience'), t('header.skills'), t('header.projects'), t('header.contact')]} />
 
         <main className="flex-grow container mx-auto px-4 py-8">
-          <Section id="accueil">
+          <Section  id="home">
             <div className="flex flex-col md:flex-row items-center justify-center h-full text-center md:text-left mt-5">
               <motion.img
                 src="../assets/taps_profile.jpg"
@@ -204,7 +280,7 @@ function Portfolio() {
                     {t('home.contactButton')}
                   </motion.a>
                   <motion.a
-                    href="#projets"
+                    href="#projects"
                     className="bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-gray-200 px-6 py-3 rounded-full hover:bg-gray-300 dark:hover:bg-gray-600 transition duration-300"
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
