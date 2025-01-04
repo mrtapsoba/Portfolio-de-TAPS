@@ -113,7 +113,7 @@ function Portfolio() {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
-              TAPSOBA Abdoul Kader {darkMode}
+              TAPS.
             </motion.a>
             <div className="hidden md:flex space-x-4">
               {["Accueil", "À propos", "Expérience", "Compétences", "Projets", "Contact"].map((item) => (
@@ -304,12 +304,12 @@ function Portfolio() {
               <div>
                 <h3 className="text-xl font-semibold mb-4">Langages de programmation</h3>
                 <div className="grid grid-cols-2 gap-4">
-                  <SkillBar skill="Python" level={90} />
+                  <SkillBar skill="Python" level={85} />
                   <SkillBar skill="JavaScript" level={85} />
-                  <SkillBar skill="PHP" level={80} />
-                  <SkillBar skill="Dart" level={85} />
+                  <SkillBar skill="PHP" level={90} />
+                  <SkillBar skill="Dart" level={95} />
                   <SkillBar skill="SQL" level={85} />
-                  <SkillBar skill="R" level={75} />
+                  <SkillBar skill="R" level={65} />
                 </div>
               </div>
               <div>
@@ -317,10 +317,10 @@ function Portfolio() {
                 <div className="grid grid-cols-2 gap-4">
                   <SkillBar skill="React" level={80} />
                   <SkillBar skill="Laravel" level={85} />
-                  <SkillBar skill="Flutter" level={90} />
-                  <SkillBar skill="Django" level={75} />
-                  <SkillBar skill="Power BI" level={95} />
-                  <SkillBar skill="Streamlit" level={85} />
+                  <SkillBar skill="Flutter" level={95} />
+                  <SkillBar skill="Django" level={65} />
+                  <SkillBar skill="Power BI" level={75} />
+                  <SkillBar skill="Streamlit" level={90} />
                 </div>
               </div>
             </div>
