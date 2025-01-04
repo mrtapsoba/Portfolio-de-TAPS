@@ -1,6 +1,6 @@
 import React, { createContext, useState, useContext, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { FaSun, FaMoon, FaGraduationCap, FaLaptopCode, FaTrophy, FaLinkedin, FaGithub, FaEnvelope, FaPhoneAlt, FaMapMarkerAlt } from 'react-icons/fa';
+import { FaSun, FaMoon, FaGraduationCap, FaLaptopCode, FaTrophy, FaLinkedin, FaGithub, FaEnvelope, FaPhoneAlt, FaMapMarkerAlt, FaBars, FaTimes } from 'react-icons/fa';
 
 // Contexte de thème
 const ThemeContext = createContext();
@@ -15,13 +15,8 @@ const ThemeProvider = ({ children }) => {
   });
 
   useEffect(() => {
-    if (darkMode) {
-      document.documentElement.classList.add('dark');
-      localStorage.setItem('theme', 'dark');
-    } else {
-      document.documentElement.classList.remove('dark');
-      localStorage.setItem('theme', 'light');
-    }
+    document.documentElement.classList.toggle('dark', darkMode);
+    localStorage.setItem('theme', darkMode ? 'dark' : 'light');
   }, [darkMode]);
 
   const toggleDarkMode = () => {
@@ -70,9 +65,42 @@ const ThemeToggle = () => {
   );
 };
 
+// Composant de menu mobile
+const MobileMenu = ({ isOpen, toggleMenu }) => {
+  return (
+    <motion.div
+      className={`fixed inset-0 bg-gray-800 bg-opacity-75 z-50 ${isOpen ? 'block' : 'hidden'}`}
+      initial={{ opacity: 0 }}
+      animate={{ opacity: isOpen ? 1 : 0 }}
+      transition={{ duration: 0.3 }}
+    >
+      <div className="flex flex-col h-full justify-center items-center">
+        <button onClick={toggleMenu} className="absolute top-4 right-4 text-white">
+          <FaTimes size={24} />
+        </button>
+        {["Accueil", "À propos", "Expérience", "Compétences", "Projets", "Contact"].map((item) => (
+          <a
+            key={item}
+            href={`#${item.toLowerCase().replace(' ', '-')}`}
+            className="text-white text-2xl my-4"
+            onClick={toggleMenu}
+          >
+            {item}
+          </a>
+        ))}
+      </div>
+    </motion.div>
+  );
+};
+
 // Composant principal
 function Portfolio() {
   const { darkMode } = useTheme();
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
+  };
 
   return (
     <div className={darkMode ? 'dark' : ''}>
@@ -85,23 +113,31 @@ function Portfolio() {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
-              TAPSOBA Abdoul Kader
+              TAPSOBA Abdoul Kader {darkMode}
             </motion.a>
-            <ul className="flex space-x-4">
-              {["Accueil", "À propos", "Expérience", "Compétences", "Projets", "Contact"].map((item, index) => (
-                <motion.li key={item}
+            <div className="hidden md:flex space-x-4">
+              {["Accueil", "À propos", "Expérience", "Compétences", "Projets", "Contact"].map((item) => (
+                <motion.a
+                  key={item}
+                  href={`#${item.toLowerCase().replace(' ', '-')}`}
+                  className="hover:text-blue-200 transition-colors duration-200"
                   whileHover={{ scale: 1.1 }}
                   whileTap={{ scale: 0.95 }}
                 >
-                  <a href={`#${item.toLowerCase().replace(' ', '-')}`} className="hover:text-blue-200 transition-colors duration-200">
-                    {item}
-                  </a>
-                </motion.li>
+                  {item}
+                </motion.a>
               ))}
-            </ul>
-            <ThemeToggle />
+            </div>
+            <div className="flex items-center space-x-4">
+              <ThemeToggle />
+              <button className="md:hidden" onClick={toggleMenu}>
+                <FaBars size={24} />
+              </button>
+            </div>
           </nav>
         </header>
+
+        <MobileMenu isOpen={isMenuOpen} toggleMenu={toggleMenu} />
 
         <main className="flex-grow container mx-auto px-4 py-8">
           <Section id="accueil">
@@ -109,7 +145,7 @@ function Portfolio() {
               <motion.img
                 src="../assets/taps_profile.jpg"
                 alt="TAPSOBA Abdoul Kader"
-                className="rounded-full w-64 h-64 object-cover mb-8 md:mr-8"
+                className="rounded-full w-48 h-48 md:w-64 md:h-64 object-cover mb-8 md:mr-8"
                 initial={{ opacity: 0, scale: 0.5 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.5 }}
@@ -119,22 +155,51 @@ function Portfolio() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.2 }}
               >
-                <h1 className="text-5xl font-bold mb-4">TAPSOBA Abdoul Kader</h1>
-                <p className="text-2xl mb-4">Data Scientist | Développeur Web et Mobile | Ingénieur Logiciel</p>
-                <p className="text-xl mb-8 max-w-2xl">
+                <motion.h1 
+                  className="text-3xl md:text-5xl font-bold mb-4"
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: 0.3 }}
+                >
+                  TAPSOBA Abdoul Kader
+                </motion.h1>
+                <motion.p 
+                  className="text-xl md:text-2xl mb-4"
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: 0.4 }}
+                >
+                  Data Scientist | Développeur Web et Mobile | Ingénieur Logiciel
+                </motion.p>
+                <motion.p 
+                  className="text-base md:text-xl mb-8 max-w-2xl"
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: 0.5 }}
+                >
                   Passionné par l'analyse de données et les solutions innovantes, je souhaite
                   contribuer à des projets stratégiques en tant que Data Analyst, en exploitant mes
                   compétences en machine learning, visualisation de données et analyse prédictive
                   pour anticiper les tendances et apporter une valeur ajoutée aux décisions
                   d'entreprise.
-                </p>
-                <div className="flex justify-center md:justify-start space-x-4">
-                  <a href="#contact" className="bg-blue-700 dark:bg-blue-600 text-white px-6 py-3 rounded-full hover:bg-blue-600 dark:hover:bg-blue-500 transition duration-300">
+                </motion.p>
+                <div className="flex flex-col sm:flex-row justify-center md:justify-start space-y-4 sm:space-y-0 sm:space-x-4">
+                  <motion.a
+                    href="#contact"
+                    className="bg-blue-700 dark:bg-blue-600 text-white px-6 py-3 rounded-full hover:bg-blue-600 dark:hover:bg-blue-500 transition duration-300"
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                  >
                     Me contacter
-                  </a>
-                  <a href="#projects" className="bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-gray-200 px-6 py-3 rounded-full hover:bg-gray-300 dark:hover:bg-gray-600 transition duration-300">
+                  </motion.a>
+                  <motion.a
+                    href="#projects"
+                    className="bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-gray-200 px-6 py-3 rounded-full hover:bg-gray-300 dark:hover:bg-gray-600 transition duration-300"
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                  >
                     Voir mes projets
-                  </a>
+                  </motion.a>
                 </div>
               </motion.div>
             </div>
@@ -142,7 +207,7 @@ function Portfolio() {
 
           <Section id="à-propos">
             <motion.h2 
-              className="text-3xl font-bold mb-6"
+              className="text-2xl md:text-3xl font-bold mb-6"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
@@ -151,7 +216,7 @@ function Portfolio() {
             </motion.h2>
             <div className="grid md:grid-cols-2 gap-8">
               <div>
-                <h3 className="text-2xl font-semibold mb-4 flex items-center">
+                <h3 className="text-xl font-semibold mb-4 flex items-center">
                   <FaGraduationCap className="mr-2" /> Formation
                 </h3>
                 <ul className="space-y-4">
@@ -174,14 +239,9 @@ function Portfolio() {
                 </ul>
               </div>
               <div>
-                <motion.h2 
-                  className="text-3xl font-bold mb-6"
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.5 }}
-                >
-                  Compétences techniques
-                </motion.h2>
+                <h3 className="text-xl font-semibold mb-4 flex items-center">
+                  <FaLaptopCode className="mr-2" /> Compétences clés
+                </h3>
                 <ul className="list-disc list-inside space-y-2">
                   <li>Analyse de données et Machine Learning avec Python</li>
                   <li>Développement web (React, Laravel, Django)</li>
@@ -196,7 +256,7 @@ function Portfolio() {
 
           <Section id="expérience">
             <motion.h2 
-              className="text-3xl font-bold mb-6"
+              className="text-2xl md:text-3xl font-bold mb-6"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
@@ -233,7 +293,7 @@ function Portfolio() {
 
           <Section id="compétences">
           <motion.h2 
-              className="text-3xl font-bold mb-6"
+              className="text-2xl md:text-3xl font-bold mb-6"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
@@ -268,7 +328,7 @@ function Portfolio() {
 
           <Section id="projets">
             <motion.h2 
-              className="text-3xl font-bold mb-6"
+              className="text-2xl md:text-3xl font-bold mb-6"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
@@ -314,7 +374,7 @@ function Portfolio() {
 
           <Section id="contact">
             <motion.h2 
-              className="text-3xl font-bold mb-6"
+              className="text-2xl md:text-3xl font-bold mb-6"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
@@ -374,7 +434,7 @@ function Portfolio() {
           </Section>
         </main>
 
-        <footer className="bg-blue-700 dark:bg-blue-900 text-white p-4">
+        <footer className="bg-blue-700 dark:bg-blue-900 text-white p-4 transition-colors duration-300">
           <div className="container mx-auto text-center">
             © 2023 TAPSOBA Abdoul Kader. Tous droits réservés.
           </div>
