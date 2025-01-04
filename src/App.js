@@ -1,6 +1,8 @@
 import React, { createContext, useState, useContext, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { FaSun, FaMoon, FaGraduationCap, FaLaptopCode, FaTrophy, FaLinkedin, FaGithub, FaEnvelope, FaPhoneAlt, FaMapMarkerAlt, FaBars, FaTimes } from 'react-icons/fa';
+import { useTranslation } from 'react-i18next';
+import i18n from './i18n';
 
 // Contexte de thème
 const ThemeContext = createContext();
@@ -66,7 +68,7 @@ const ThemeToggle = () => {
 };
 
 // Composant de menu mobile
-const MobileMenu = ({ isOpen, toggleMenu }) => {
+const MobileMenu = ({ isOpen, toggleMenu, list }) => {
   return (
     <motion.div
       className={`fixed inset-0 bg-gray-800 bg-opacity-75 z-50 ${isOpen ? 'block' : 'hidden'}`}
@@ -78,7 +80,7 @@ const MobileMenu = ({ isOpen, toggleMenu }) => {
         <button onClick={toggleMenu} className="absolute top-4 right-4 text-white">
           <FaTimes size={24} />
         </button>
-        {["Accueil", "À propos", "Expérience", "Compétences", "Projets", "Contact"].map((item) => (
+        {list.map((item) => (
           <a
             key={item}
             href={`#${item.toLowerCase().replace(' ', '-')}`}
@@ -95,11 +97,16 @@ const MobileMenu = ({ isOpen, toggleMenu }) => {
 
 // Composant principal
 function Portfolio() {
+  const { t } = useTranslation();
   const { darkMode } = useTheme();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
+  };
+
+  const changeLanguage = (lng) => {
+    i18n.changeLanguage(lng);
   };
 
   return (
@@ -116,7 +123,7 @@ function Portfolio() {
               TAPS.
             </motion.a>
             <div className="hidden md:flex space-x-4">
-              {["Accueil", "À propos", "Expérience", "Compétences", "Projets", "Contact"].map((item) => (
+              {[t('header.home'), t('header.about'), t('header.experience'), t('header.skills'), t('header.projects'), t('header.contact')].map((item) => (
                 <motion.a
                   key={item}
                   href={`#${item.toLowerCase().replace(' ', '-')}`}
@@ -130,6 +137,14 @@ function Portfolio() {
             </div>
             <div className="flex items-center space-x-4">
               <ThemeToggle />
+              <select
+                onChange={(e) => changeLanguage(e.target.value)}
+                className="bg-blue-600 text-white px-2 py-1 rounded"
+              >
+                <option value="en">EN</option>
+                <option value="fr">FR</option>
+                <option value="es">ES</option>
+              </select>
               <button className="md:hidden" onClick={toggleMenu}>
                 <FaBars size={24} />
               </button>
@@ -137,11 +152,11 @@ function Portfolio() {
           </nav>
         </header>
 
-        <MobileMenu isOpen={isMenuOpen} toggleMenu={toggleMenu} />
+        <MobileMenu isOpen={isMenuOpen} toggleMenu={toggleMenu} list={[t('header.home'), t('header.about'), t('header.experience'), t('header.skills'), t('header.projects'), t('header.contact')]} />
 
         <main className="flex-grow container mx-auto px-4 py-8">
           <Section id="accueil">
-            <div className="flex flex-col md:flex-row items-center justify-center h-full text-center md:text-left">
+            <div className="flex flex-col md:flex-row items-center justify-center h-full text-center md:text-left mt-5">
               <motion.img
                 src="../assets/taps_profile.jpg"
                 alt="TAPSOBA Abdoul Kader"
@@ -161,7 +176,7 @@ function Portfolio() {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, delay: 0.3 }}
                 >
-                  TAPSOBA Abdoul Kader
+                  {t('home.title')}
                 </motion.h1>
                 <motion.p 
                   className="text-xl md:text-2xl mb-4"
@@ -169,7 +184,7 @@ function Portfolio() {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, delay: 0.4 }}
                 >
-                  Data Scientist | Développeur Web et Mobile | Ingénieur Logiciel
+                  {t('home.subtitle')}
                 </motion.p>
                 <motion.p 
                   className="text-base md:text-xl mb-8 max-w-2xl"
@@ -177,11 +192,7 @@ function Portfolio() {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, delay: 0.5 }}
                 >
-                  Passionné par l'analyse de données et les solutions innovantes, je souhaite
-                  contribuer à des projets stratégiques en tant que Data Analyst, en exploitant mes
-                  compétences en machine learning, visualisation de données et analyse prédictive
-                  pour anticiper les tendances et apporter une valeur ajoutée aux décisions
-                  d'entreprise.
+                  {t('home.description')}
                 </motion.p>
                 <div className="flex flex-col sm:flex-row justify-center md:justify-start space-y-4 sm:space-y-0 sm:space-x-4">
                   <motion.a
@@ -190,253 +201,286 @@ function Portfolio() {
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
                   >
-                    Me contacter
+                    {t('home.contactButton')}
                   </motion.a>
                   <motion.a
-                    href="#projects"
+                    href="#projets"
                     className="bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-gray-200 px-6 py-3 rounded-full hover:bg-gray-300 dark:hover:bg-gray-600 transition duration-300"
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
                   >
-                    Voir mes projets
+                    {t('home.projectsButton')}
                   </motion.a>
                 </div>
               </motion.div>
             </div>
           </Section>
 
-          <Section id="à-propos">
+          <Section id="about">
             <motion.h2 
               className="text-2xl md:text-3xl font-bold mb-6"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
             >
-              À propos de moi
+              {t('about.title')}
             </motion.h2>
             <div className="grid md:grid-cols-2 gap-8">
               <div>
                 <h3 className="text-xl font-semibold mb-4 flex items-center">
-                  <FaGraduationCap className="mr-2" /> Formation
+                  <FaGraduationCap className="mr-2" /> {t('about.education.title')}
                 </h3>
                 <ul className="space-y-4">
                   <li>
-                    <p className="font-semibold">Microsoft Certified: Power BI Data Analyst Associate</p>
-                    <p>Microsoft Learn, 2024</p>
+                    <p className="font-semibold">{t('about.education.certifications.one.title')}</p>
+                    <p>{t('about.education.certifications.one.institution')}, {t('about.education.certifications.one.year')}</p>
                   </li>
                   <li>
-                    <p className="font-semibold">Master en Science de données</p>
-                    <p>ECOLE SUPÉRIEURE D'INFORMATIQUE, 2021 - 2023</p>
+                    <p className="font-semibold">{t('about.education.certifications.two.title')}</p>
+                    <p>{t('about.education.certifications.two.institution')}, {t('about.education.certifications.two.period')}</p>
                   </li>
                   <li>
-                    <p className="font-semibold">Licence en Ingénierie des Systèmes d'Information</p>
-                    <p>ECOLE SUPÉRIEURE D'INFORMATIQUE, 2018 - 2021</p>
+                    <p className="font-semibold">{t('about.education.certifications.three.title')}</p>
+                    <p>{t('about.education.certifications.three.institution')}, {t('about.education.certifications.three.period')}</p>
                   </li>
                   <li>
-                    <p className="font-semibold">Python full stack</p>
-                    <p>Sira Labs, 2021</p>
+                    <p className="font-semibold">{t('about.education.certifications.four.title')}</p>
+                    <p>{t('about.education.certifications.four.institution')}, {t('about.education.certifications.four.year')}</p>
                   </li>
                 </ul>
               </div>
               <div>
                 <h3 className="text-xl font-semibold mb-4 flex items-center">
-                  <FaLaptopCode className="mr-2" /> Compétences clés
+                  <FaLaptopCode className="mr-2" /> {t('about.skills.title')}
                 </h3>
                 <ul className="list-disc list-inside space-y-2">
-                  <li>Analyse de données et Machine Learning avec Python</li>
-                  <li>Développement web (React, Laravel, Django)</li>
-                  <li>Développement mobile (Flutter)</li>
-                  <li>Visualisation de données (Power BI, Streamlit)</li>
-                  <li>Gestion de bases de données (SQL, NoSQL)</li>
-                  <li>Gestion de projet informatique</li>
+                  <li>{t('about.skills.list.one')}</li>
+                  <li>{t('about.skills.list.two')}</li>
+                  <li>{t('about.skills.list.three')}</li>
+                  <li>{t('about.skills.list.four')}</li>
+                  <li>{t('about.skills.list.five')}</li>
+                  <li>{t('about.skills.list.six')}</li>
                 </ul>
               </div>
             </div>
           </Section>
 
-          <Section id="expérience">
+          <Section id="experience">
             <motion.h2 
               className="text-2xl md:text-3xl font-bold mb-6"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
             >
-              Expérience professionnelle
+              {t('experience.title')}
             </motion.h2>
             <div className="space-y-6">
               <ExperienceItem 
-                title="Formateur Power BI – PL-300 et PL-900"
-                company="Box Africa"
-                period="Décembre 2024"
-                description="Animation d'une formation pratique de 4 jours sur l'utilisation de Power BI pour l'analytique de données et la création de rapports interactifs. Préparation aux certifications PL-300 et PL-900."
+                title={t('experience.jobs.one.title')}
+                company={t('experience.jobs.one.company')}
+                period={t('experience.jobs.one.period')}
+                description={t('experience.jobs.one.description')}
               />
               <ExperienceItem 
-                title="Développeur Web et Data Scientist"
-                company="ProsTech"
-                period="Avril 2024 - En cours"
-                description="Conception et développement d'une application de gestion et d'aide à la migration vers le Canada. Mise en place d'un système de recommandation intelligent et analyse de données pour améliorer les performances de l'application."
+                title={t('experience.jobs.two.title')}
+                company={t('experience.jobs.two.company')}
+                period={t('experience.jobs.two.period')}
+                description={t('experience.jobs.two.description')}
               />
               <ExperienceItem 
-                title="Data Scientist"
-                company="WASCAL"
-                period="Février 2024 - Juillet 2024"
-                description="Analyse des migrations de la population Burkinabé suite au conflit et aux changements climatiques. Développement d'un modèle AI de prédiction du flux migratoire et d'un outil de prise de décision sur conflit, migration et sécurité alimentaire."
+                title={t('experience.jobs.three.title')}
+                company={t('experience.jobs.three.company')}
+                period={t('experience.jobs.three.period')}
+                description={t('experience.jobs.three.description')}
               />
               <ExperienceItem 
-                title="Data Scientist"
-                company="WASCAL"
-                period="Juillet 2023 - Janvier 2024"
-                description="Collecte et préparation des données météorologiques. Analyse des données pour une meilleure compréhension de la météo en Afrique de l'Ouest. Développement d'un système de prédiction de la température utilisant le Machine Learning et le Deep Learning."
+                title={t('experience.jobs.four.title')}
+                company={t('experience.jobs.four.company')}
+                period={t('experience.jobs.four.period')}
+                description={t('experience.jobs.four.description')}
               />
             </div>
           </Section>
 
-          <Section id="compétences">
-          <motion.h2 
+          <Section id="skills">
+            <motion.h2
               className="text-2xl md:text-3xl font-bold mb-6"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
             >
-              Compétences techniques
+              {t('skills.title')}
             </motion.h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div>
-                <h3 className="text-xl font-semibold mb-4">Langages de programmation</h3>
+                <h3 className="text-xl font-semibold mb-4">{t('skills.programmingLanguages.title')}</h3>
                 <div className="grid grid-cols-2 gap-4">
-                  <SkillBar skill="Python" level={85} />
-                  <SkillBar skill="JavaScript" level={85} />
-                  <SkillBar skill="PHP" level={90} />
-                  <SkillBar skill="Dart" level={95} />
-                  <SkillBar skill="SQL" level={85} />
-                  <SkillBar skill="R" level={65} />
+                  <SkillBar skill={t('skills.programmingLanguages.skills.one.name')} level={t('skills.programmingLanguages.skills.one.level')} />
+                  <SkillBar skill={t('skills.programmingLanguages.skills.two.name')} level={t('skills.programmingLanguages.skills.two.level')} />
+                  <SkillBar skill={t('skills.programmingLanguages.skills.three.name')} level={t('skills.programmingLanguages.skills.three.level')} />
+                  <SkillBar skill={t('skills.programmingLanguages.skills.four.name')} level={t('skills.programmingLanguages.skills.four.level')} />
+                  <SkillBar skill={t('skills.programmingLanguages.skills.five.name')} level={t('skills.programmingLanguages.skills.five.level')} />
+                  <SkillBar skill={t('skills.programmingLanguages.skills.six.name')} level={t('skills.programmingLanguages.skills.six.level')} />
                 </div>
               </div>
               <div>
-                <h3 className="text-xl font-semibold mb-4">Frameworks et outils</h3>
+                <h3 className="text-xl font-semibold mb-4">{t('skills.frameworksAndTools.title')}</h3>
                 <div className="grid grid-cols-2 gap-4">
-                  <SkillBar skill="React" level={80} />
-                  <SkillBar skill="Laravel" level={85} />
-                  <SkillBar skill="Flutter" level={95} />
-                  <SkillBar skill="Django" level={65} />
-                  <SkillBar skill="Power BI" level={75} />
-                  <SkillBar skill="Streamlit" level={90} />
+                  <SkillBar skill={t('skills.frameworksAndTools.skills.one.name')} level={t('skills.frameworksAndTools.skills.one.level')} />
+                  <SkillBar skill={t('skills.frameworksAndTools.skills.two.name')} level={t('skills.frameworksAndTools.skills.two.level')} />
+                  <SkillBar skill={t('skills.frameworksAndTools.skills.three.name')} level={t('skills.frameworksAndTools.skills.three.level')} />
+                  <SkillBar skill={t('skills.frameworksAndTools.skills.four.name')} level={t('skills.frameworksAndTools.skills.four.level')} />
+                  <SkillBar skill={t('skills.frameworksAndTools.skills.five.name')} level={t('skills.frameworksAndTools.skills.five.level')} />
+                  <SkillBar skill={t('skills.frameworksAndTools.skills.six.name')} level={t('skills.frameworksAndTools.skills.six.level')} />
                 </div>
               </div>
             </div>
           </Section>
 
-          <Section id="projets">
-            <motion.h2 
+          <Section id="projects">
+            <motion.h2
               className="text-2xl md:text-3xl font-bold mb-6"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
             >
-              Projets réalisés
+              {t('projects.title')}
             </motion.h2>
             <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
               <ProjectCard
-                title="Faso Migration"
-                description="Plateforme web d'analyse du flux migratoire au Burkina Faso et de prévision des migrations futures pour une meilleure prise de décision."
-                technologies={["Python", "Jupyter Notebook", "Scikit-learn", "Streamlit"]}
+                title={t('projects.list.one.title')}
+                description={t('projects.list.one.description')}
+                technologies={t('projects.list.one.technologies', { returnObjects: true })}
               />
               <ProjectCard
-                title="Climat Model"
-                description="Collecte, préparation et analyse de données météorologiques. Développement de modèles IA pour la complétion de données manquantes et la prédiction météorologique."
-                technologies={["Python", "Matplotlib", "Seaborn", "Scikit-learn", "TensorFlow", "Keras"]}
+                title={t('projects.list.two.title')}
+                description={t('projects.list.two.description')}
+                technologies={t('projects.list.two.technologies', { returnObjects: true })}
               />
               <ProjectCard
-                title="RifkaStore"
-                description="Application web et mobile de e-commerce inspirée du Grand Marché de Ouagadougou."
-                technologies={["HTML", "CSS", "Uikit", "PHP", "Flutter", "MySQL"]}
+                title={t('projects.list.three.title')}
+                description={t('projects.list.three.description')}
+                technologies={t('projects.list.three.technologies', { returnObjects: true })}
               />
               <ProjectCard
-                title="Reemix Play"
-                description="Application mobile de streaming de musique et vidéo avec fonctionnalités sociales."
-                technologies={["Dart", "Flutter", "MySQL"]}
-                link="https://github.com/mrtapsoba/reemix_play"
+                title={t('projects.list.four.title')}
+                description={t('projects.list.four.description')}
+                technologies={t('projects.list.four.technologies', { returnObjects: true })}
+                link={t('projects.list.four.link')}
               />
               <ProjectCard
-                title="EventBook"
-                description="Application mobile de suivi, partage et publication d'événements."
-                technologies={["Dart", "Flutter", "MySQL"]}
-                link="https://github.com/mrtapsoba/eventbook-v1"
+                title={t('projects.list.five.title')}
+                description={t('projects.list.five.description')}
+                technologies={t('projects.list.five.technologies', { returnObjects: true })}
+                link={t('projects.list.five.link')}
               />
               <ProjectCard
-                title="Bon contact"
-                description="Réseau social professionnel mobile avec messagerie instantanée et partage d'opportunités."
-                technologies={["Dart", "Flutter", "Firebase"]}
-                link="https://bit.ly/3VTOmdI"
+                title={t('projects.list.six.title')}
+                description={t('projects.list.six.description')}
+                technologies={t('projects.list.six.technologies', { returnObjects: true })}
+                link={t('projects.list.six.link')}
               />
             </div>
           </Section>
 
           <Section id="contact">
-            <motion.h2 
-              className="text-2xl md:text-3xl font-bold mb-6"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5 }}
-            >
-              Contact
-            </motion.h2>
-            <div className="grid md:grid-cols-2 gap-8">
-              <div>
-                <h3 className="text-xl font-semibold mb-4">Informations de contact</h3>
-                <ul className="space-y-2">
-                  <li className="flex items-center">
-                    <FaMapMarkerAlt className="mr-2" />
-                    <span>Ouagadougou, Burkina Faso</span>
-                  </li>
-                  <li className="flex items-center">
-                    <FaPhoneAlt className="mr-2" />
-                    <span>+226 56 90 66 66</span>
-                  </li>
-                  <li className="flex items-center">
-                    <FaEnvelope className="mr-2" />
-                    <span>ktapsoba80@gmail.com</span>
-                  </li>
-                </ul>
-                <div className="mt-4">
-                  <h3 className="text-xl font-semibold mb-4">Retrouvez-moi sur les réseaux sociaux</h3>
-                  <div className="flex space-x-4">
-                    <a href="https://www.linkedin.com/in/abdoul-kader-tapsoba-32b193196" className="text-blue-700 dark:text-blue-400 hover:text-blue-600 dark:hover:text-blue-300">
-                      <FaLinkedin size={24} />
-                    </a>
-                    <a href="https://github.com/mrtapsoba" className="text-blue-700 dark:text-blue-400 hover:text-blue-600 dark:hover:text-blue-300">
-                      <FaGithub size={24} />
-                    </a>
-                  </div>
+          <motion.h2
+            className="text-2xl md:text-3xl font-bold mb-6"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+          >
+            {t('contact.title')}
+          </motion.h2>
+          <div className="grid md:grid-cols-2 gap-8">
+            <div>
+              <h3 className="text-xl font-semibold mb-4">{t('contact.info.title')}</h3>
+              <ul className="space-y-2">
+                <li className="flex items-center">
+                  <FaMapMarkerAlt className="mr-2" />
+                  <span>{t('contact.info.address')}</span>
+                </li>
+                <li className="flex items-center">
+                  <FaPhoneAlt className="mr-2" />
+                  <span>{t('contact.info.phone')}</span>
+                </li>
+                <li className="flex items-center">
+                  <FaEnvelope className="mr-2" />
+                  <span>{t('contact.info.email')}</span>
+                </li>
+              </ul>
+              <div className="mt-4">
+                <h3 className="text-xl font-semibold mb-4">{t('contact.social.title')}</h3>
+                <div className="flex space-x-4">
+                  <a
+                    href={t('contact.social.linkedin')}
+                    className="text-blue-700 dark:text-blue-400 hover:text-blue-600 dark:hover:text-blue-300"
+                  >
+                    <FaLinkedin size={24} />
+                  </a>
+                  <a
+                    href={t('contact.social.github')}
+                    className="text-blue-700 dark:text-blue-400 hover:text-blue-600 dark:hover:text-blue-300"
+                  >
+                    <FaGithub size={24} />
+                  </a>
                 </div>
               </div>
-              <div>
-                <h3 className="text-xl font-semibold mb-4">Envoyez-moi un message</h3>
-                <form onSubmit={(e) => e.preventDefault()} className="space-y-4">
-                  <div>
-                    <label htmlFor="name" className="block text-sm font-medium text-gray-700 dark:text-gray-300">Nom</label>
-                    <input type="text" id="name" name="name" className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-300 focus:ring focus:ring-blue-200 focus:ring-opacity-50 dark:bg-gray-700 dark:border-gray-600" required />
-                  </div>
-                  <div>
-                    <label htmlFor="email" className="block text-sm font-medium text-gray-700 dark:text-gray-300">Email</label>
-                    <input type="email" id="email" name="email" className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-300 focus:ring focus:ring-blue-200 focus:ring-opacity-50 dark:bg-gray-700 dark:border-gray-600" required />
-                  </div>
-                  <div>
-                    <label htmlFor="message" className="block text-sm font-medium text-gray-700 dark:text-gray-300">Message</label>
-                    <textarea id="message" name="message" rows="4" className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-300 focus:ring focus:ring-blue-200 focus:ring-opacity-50 dark:bg-gray-700 dark:border-gray-600" required></textarea>
-                  </div>
-                  <button type="submit" className="w-full bg-blue-700 dark:bg-blue-600 text-white px-6 py-3 rounded-full hover:bg-blue-600 dark:hover:bg-blue-500 transition duration-300">
-                    Envoyer
-                  </button>
-                </form>
-              </div>
             </div>
-          </Section>
+            <div>
+              <h3 className="text-xl font-semibold mb-4">{t('contact.form.title')}</h3>
+              <form onSubmit={(e) => e.preventDefault()} className="space-y-4">
+                <div>
+                  <label htmlFor="name" className="block text-sm font-medium text-gray-700 dark:text-gray-300">
+                    {t('contact.form.name')}
+                  </label>
+                  <input
+                    type="text"
+                    id="name"
+                    name="name"
+                    className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-300 focus:ring focus:ring-blue-200 focus:ring-opacity-50 dark:bg-gray-700 dark:border-gray-600"
+                    required
+                  />
+                </div>
+                <div>
+                  <label htmlFor="email" className="block text-sm font-medium text-gray-700 dark:text-gray-300">
+                    {t('contact.form.email')}
+                  </label>
+                  <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-300 focus:ring focus:ring-blue-200 focus:ring-opacity-50 dark:bg-gray-700 dark:border-gray-600"
+                    required
+                  />
+                </div>
+                <div>
+                  <label htmlFor="message" className="block text-sm font-medium text-gray-700 dark:text-gray-300">
+                    {t('contact.form.message')}
+                  </label>
+                  <textarea
+                    id="message"
+                    name="message"
+                    rows="4"
+                    className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-300 focus:ring focus:ring-blue-200 focus:ring-opacity-50 dark:bg-gray-700 dark:border-gray-600"
+                    required
+                  ></textarea>
+                </div>
+                <button
+                  type="submit"
+                  className="w-full bg-blue-700 dark:bg-blue-600 text-white px-6 py-3 rounded-full hover:bg-blue-600 dark:hover:bg-blue-500 transition duration-300"
+                >
+                  {t('contact.form.send')}
+                </button>
+              </form>
+            </div>
+          </div>
+        </Section>
         </main>
 
         <footer className="bg-blue-700 dark:bg-blue-900 text-white p-4 transition-colors duration-300">
           <div className="container mx-auto text-center">
-            © 2023 TAPSOBA Abdoul Kader. Tous droits réservés.
+            {t('footer.rights')}
           </div>
         </footer>
       </div>

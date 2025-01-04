@@ -1,0 +1,176 @@
+{
+  "header": {
+    "home": "Home",
+    "about": "About",
+    "experience": "Experience",
+    "skills": "Skills",
+    "projects": "Projects",
+    "contact": "Contact"
+  },
+  "home": {
+    "title": "TAPSOBA Abdoul Kader",
+    "subtitle": "Data Scientist | Web and Mobile Developer | Software Engineer",
+    "description": "Passionate about data analysis and innovative solutions, I aim to contribute to strategic projects as a Data Analyst, leveraging my skills in machine learning, data visualization, and predictive analysis to anticipate trends and add value to business decisions.",
+    "contactButton": "Contact Me",
+    "projectsButton": "View My Projects"
+  },
+  "about": {
+    "title": "About Me",
+    "education": {
+      "title": "Education",
+      "certifications": {
+        "one": {
+          "title": "Microsoft Certified: Power BI Data Analyst Associate",
+          "institution": "Microsoft Learn",
+          "year": "2024"
+        },
+        "two": {
+          "title": "Master in Data Science",
+          "institution": "ECOLE SUPÉRIEURE D'INFORMATIQUE",
+          "period": "2021 - 2023"
+        },
+        "three": {
+          "title": "Bachelor in Information Systems Engineering",
+          "institution": "ECOLE SUPÉRIEURE D'INFORMATIQUE",
+          "period": "2018 - 2021"
+        },
+        "four": {
+          "title": "Python full stack",
+          "institution": "Sira Labs",
+          "year": "2021"
+        }
+      }
+    },
+    "skills": {
+      "title": "Key Skills",
+      "list": {
+        "one": "Data analysis and Machine Learning with Python",
+        "two": "Web development (React, Laravel, Django)",
+        "three": "Mobile development (Flutter)",
+        "four": "Data visualization (Power BI, Streamlit)",
+        "five": "Database management (SQL, NoSQL)",
+        "six": "IT project management"
+      }
+    }
+  },
+  "experience": {
+    "title": "Professional Experience",
+    "jobs": {
+      "one": {
+        "title": "Power BI Trainer – PL-300 and PL-900",
+        "company": "Box Africa",
+        "period": "December 2024",
+        "description": "Conducted a 5-day practical training on using Power BI for data analytics and creating interactive reports. Preparation for PL-300 and PL-900 certifications."
+      },
+      "two": {
+        "title": "Web Developer and Data Scientist",
+        "company": "ProsTech",
+        "period": "April 2024 - Present",
+        "description": "Design and development of a management and assistance application for migration to Canada. Implementation of an intelligent recommendation system and data analysis to improve application performance."
+      },
+      "three": {
+        "title": "Data Scientist",
+        "company": "WASCAL",
+        "period": "February 2024 - July 2024",
+        "description": "Analysis of Burkinabe population migrations due to conflict and climate change. Development of an AI model for predicting migration flow and a decision-making tool on conflict, migration, and food security."
+      },
+      "four": {
+        "title": "Data Scientist",
+        "company": "WASCAL",
+        "period": "July 2023 - January 2024",
+        "description": "Collection and preparation of meteorological data. Data analysis for a better understanding of weather in West Africa. Development of a temperature prediction system using Machine Learning and Deep Learning."
+      }
+    }
+  },
+  "skills": {
+    "title": "Technical Skills",
+    "programmingLanguages": {
+      "title": "Programming Languages",
+      "skills": {
+        "one": { "name": "Python", "level": 85 },
+        "two": { "name": "JavaScript", "level": 85 },
+        "three": { "name": "PHP", "level": 90 },
+        "four": { "name": "Dart", "level": 95 },
+        "five": { "name": "SQL", "level": 85 },
+        "six": { "name": "R", "level": 65 }
+      }
+    },
+    "frameworksAndTools": {
+      "title": "Frameworks and Tools",
+      "skills": {
+        "one": { "name": "React", "level": 80 },
+        "two": { "name": "Laravel", "level": 85 },
+        "three": { "name": "Flutter", "level": 95 },
+        "four": { "name": "Django", "level": 65 },
+        "five": { "name": "Power BI", "level": 75 },
+        "six": { "name": "Streamlit", "level": 90 }
+      }
+    }
+  },
+  "projects": {
+    "title": "Completed Projects",
+    "list": {
+      "one": {
+        "title": "Faso Migration",
+        "description": "Web platform for analyzing migration flow in Burkina Faso and forecasting future migrations for better decision-making.",
+        "technologies": ["Python", "Jupyter Notebook", "Scikit-learn", "Streamlit"]
+      },
+      "two": {
+        "title": "Climate Model",
+        "description": "Collection, preparation, and analysis of meteorological data. Development of AI models for completing missing data and weather prediction.",
+        "technologies": ["Python", "Matplotlib", "Seaborn", "Scikit-learn", "TensorFlow", "Keras"]
+      },
+      "three": {
+        "title": "RifkaStore",
+        "description": "Web and mobile e-commerce application inspired by the Grand Market of Ouagadougou.",
+        "technologies": ["HTML", "CSS", "Uikit", "PHP", "Flutter", "MySQL"]
+      },
+      "four": {
+        "title": "Reemix Play",
+        "description": "Mobile application for music and video streaming with social features.",
+        "technologies": ["Dart", "Flutter", "MySQL"],
+        "link": "https://github.com/mrtapsoba/reemix_play"
+      },
+      "five": {
+        "title": "EventBook",
+        "description": "Mobile application for tracking, sharing, and publishing events.",
+        "technologies": ["Dart", "Flutter", "MySQL"],
+        "link": "https://github.com/mrtapsoba/eventbook-v1"
+      },
+      "six": {
+        "title": "Bon contact",
+        "description": "Mobile professional social network with instant messaging and opportunity sharing.",
+        "technologies": ["Dart", "Flutter", "Firebase"],
+        "link": "https://bit.ly/3VTOmdI"
+      }
+    }
+  },
+  "contact": {
+    "title": "Contact",
+    "info": {
+      "title": "Contact Information",
+      "address": "Ouagadougou, Burkina Faso",
+      "phone": "+226 56 90 66 66",
+      "email": "ktapsoba80@gmail.com"
+    },
+    "social": {
+      "title": "Find me on social media",
+      "linkedin": "https://www.linkedin.com/in/abdoul-kader-tapsoba-32b193196",
+      "github": "https://github.com/mrtapsoba"
+    },
+    "form": {
+      "title": "Send me a message",
+      "name": "Name",
+      "email": "Email",
+      "message": "Message",
+      "send": "Send"
+    }
+  },
+  "footer": {
+    "rights": "© 2023 TAPSOBA Abdoul Kader. All rights reserved."
+  },
+  "theme": {
+    "light": "Activate light mode",
+    "dark": "Activate dark mode"
+  }
+}
