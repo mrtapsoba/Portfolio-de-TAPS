@@ -1,5 +1,5 @@
 import React, { createContext, useState, useContext, useEffect } from 'react';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import { FaSun, FaMoon, FaGraduationCap, FaLaptopCode, FaTrophy, FaLinkedin, FaGithub, FaEnvelope, FaPhoneAlt, FaMapMarkerAlt } from 'react-icons/fa';
 
 // Contexte de thème
@@ -7,8 +7,11 @@ const ThemeContext = createContext();
 
 const ThemeProvider = ({ children }) => {
   const [darkMode, setDarkMode] = useState(() => {
-    const savedTheme = localStorage.getItem('theme');
-    return savedTheme === 'dark';
+    if (typeof window !== 'undefined') {
+      const savedTheme = localStorage.getItem('theme');
+      return savedTheme === 'dark' || (!savedTheme && window.matchMedia('(prefers-color-scheme: dark)').matches);
+    }
+    return false;
   });
 
   useEffect(() => {
@@ -22,7 +25,7 @@ const ThemeProvider = ({ children }) => {
   }, [darkMode]);
 
   const toggleDarkMode = () => {
-    setDarkMode(!darkMode);
+    setDarkMode(prevMode => !prevMode);
   };
 
   return (
@@ -45,13 +48,25 @@ const ThemeToggle = () => {
   const { darkMode, toggleDarkMode } = useTheme();
 
   return (
-    <button
+    <motion.button
       onClick={toggleDarkMode}
       className="p-2 rounded-full bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-gray-200 transition-colors duration-200"
+      whileTap={{ scale: 0.95 }}
+      whileHover={{ scale: 1.05 }}
       aria-label={darkMode ? "Activer le mode clair" : "Activer le mode sombre"}
     >
-      {darkMode ? <FaSun className="w-5 h-5" /> : <FaMoon className="w-5 h-5" />}
-    </button>
+      <AnimatePresence mode="wait" initial={false}>
+        <motion.div
+          key={darkMode ? "moon" : "sun"}
+          initial={{ y: -20, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          exit={{ y: 20, opacity: 0 }}
+          transition={{ duration: 0.2 }}
+        >
+          {darkMode ? <FaSun className="w-5 h-5" /> : <FaMoon className="w-5 h-5" />}
+        </motion.div>
+      </AnimatePresence>
+    </motion.button>
   );
 };
 
@@ -60,24 +75,36 @@ function Portfolio() {
   const { darkMode } = useTheme();
 
   return (
-      <div className={`flex flex-col min-h-screen ${darkMode ? 'dark' : ''} bg-white dark:bg-gray-900 text-gray-900 dark:text-white`}>
-        <header className="bg-blue-700 dark:bg-blue-900 text-white p-4 sticky top-0 z-10">
+    <div className={darkMode ? 'dark' : ''}>
+      <div className="bg-white dark:bg-gray-900 text-gray-900 dark:text-white transition-colors duration-300 min-h-screen">
+        <header className="bg-blue-700 dark:bg-blue-900 text-white p-4 sticky top-0 z-10 transition-colors duration-300">
           <nav className="container mx-auto flex justify-between items-center">
-            <a href="#home" className="text-2xl font-bold">TAPS</a>
+            <motion.a 
+              href="#accueil" 
+              className="text-2xl font-bold"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              TAPSOBA Abdoul Kader
+            </motion.a>
             <ul className="flex space-x-4">
-              <li><a href="#home" className="hover:text-blue-200">Accueil</a></li>
-              <li><a href="#about" className="hover:text-blue-200">À propos</a></li>
-              <li><a href="#experience" className="hover:text-blue-200">Expérience</a></li>
-              <li><a href="#skills" className="hover:text-blue-200">Compétences</a></li>
-              <li><a href="#projects" className="hover:text-blue-200">Projets</a></li>
-              <li><a href="#contact" className="hover:text-blue-200">Contact</a></li>
+              {["Accueil", "À propos", "Expérience", "Compétences", "Projets", "Contact"].map((item, index) => (
+                <motion.li key={item}
+                  whileHover={{ scale: 1.1 }}
+                  whileTap={{ scale: 0.95 }}
+                >
+                  <a href={`#${item.toLowerCase().replace(' ', '-')}`} className="hover:text-blue-200 transition-colors duration-200">
+                    {item}
+                  </a>
+                </motion.li>
+              ))}
             </ul>
             <ThemeToggle />
           </nav>
         </header>
 
         <main className="flex-grow container mx-auto px-4 py-8">
-          <Section id="home">
+          <Section id="accueil">
             <div className="flex flex-col md:flex-row items-center justify-center h-full text-center md:text-left">
               <motion.img
                 src="../assets/taps_profile.jpg"
@@ -113,8 +140,15 @@ function Portfolio() {
             </div>
           </Section>
 
-          <Section id="about">
-            <h2 className="text-3xl font-bold mb-6">À propos de moi</h2>
+          <Section id="à-propos">
+            <motion.h2 
+              className="text-3xl font-bold mb-6"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5 }}
+            >
+              À propos de moi
+            </motion.h2>
             <div className="grid md:grid-cols-2 gap-8">
               <div>
                 <h3 className="text-2xl font-semibold mb-4 flex items-center">
@@ -140,9 +174,14 @@ function Portfolio() {
                 </ul>
               </div>
               <div>
-                <h3 className="text-2xl font-semibold mb-4 flex items-center">
-                  <FaLaptopCode className="mr-2" /> Compétences clés
-                </h3>
+                <motion.h2 
+                  className="text-3xl font-bold mb-6"
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5 }}
+                >
+                  Compétences techniques
+                </motion.h2>
                 <ul className="list-disc list-inside space-y-2">
                   <li>Analyse de données et Machine Learning avec Python</li>
                   <li>Développement web (React, Laravel, Django)</li>
@@ -155,8 +194,15 @@ function Portfolio() {
             </div>
           </Section>
 
-          <Section id="experience">
-            <h2 className="text-3xl font-bold mb-6">Expérience professionnelle</h2>
+          <Section id="expérience">
+            <motion.h2 
+              className="text-3xl font-bold mb-6"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5 }}
+            >
+              Expérience professionnelle
+            </motion.h2>
             <div className="space-y-6">
               <ExperienceItem 
                 title="Formateur Power BI – PL-300 et PL-900"
@@ -185,8 +231,15 @@ function Portfolio() {
             </div>
           </Section>
 
-          <Section id="skills">
-            <h2 className="text-3xl font-bold mb-6">Compétences techniques</h2>
+          <Section id="compétences">
+          <motion.h2 
+              className="text-3xl font-bold mb-6"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5 }}
+            >
+              Compétences techniques
+            </motion.h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div>
                 <h3 className="text-xl font-semibold mb-4">Langages de programmation</h3>
@@ -213,8 +266,15 @@ function Portfolio() {
             </div>
           </Section>
 
-          <Section id="projects">
-            <h2 className="text-3xl font-bold mb-6">Projets réalisés</h2>
+          <Section id="projets">
+            <motion.h2 
+              className="text-3xl font-bold mb-6"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5 }}
+            >
+              Projets réalisés
+            </motion.h2>
             <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
               <ProjectCard
                 title="Faso Migration"
@@ -253,7 +313,14 @@ function Portfolio() {
           </Section>
 
           <Section id="contact">
-            <h2 className="text-3xl font-bold mb-6">Contact</h2>
+            <motion.h2 
+              className="text-3xl font-bold mb-6"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5 }}
+            >
+              Contact
+            </motion.h2>
             <div className="grid md:grid-cols-2 gap-8">
               <div>
                 <h3 className="text-xl font-semibold mb-4">Informations de contact</h3>
@@ -313,6 +380,7 @@ function Portfolio() {
           </div>
         </footer>
       </div>
+    </div>
   );
 }
 
@@ -342,15 +410,25 @@ const ExperienceItem = ({ title, company, period, description }) => (
 );
 
 const SkillBar = ({ skill, level }) => (
-  <div className="mb-4">
+  <motion.div 
+    className="mb-4"
+    initial={{ width: 0 }}
+    animate={{ width: "100%" }}
+    transition={{ duration: 0.5 }}
+  >
     <div className="flex justify-between mb-1">
       <span className="text-base font-medium text-blue-700 dark:text-blue-300">{skill}</span>
       <span className="text-sm font-medium text-blue-700 dark:text-blue-300">{level}%</span>
     </div>
     <div className="w-full bg-gray-200 rounded-full h-2.5 dark:bg-gray-700">
-      <div className="bg-blue-600 h-2.5 rounded-full" style={{width: `${level}%`}}></div>
+      <motion.div 
+        className="bg-blue-600 h-2.5 rounded-full" 
+        initial={{ width: 0 }}
+        animate={{ width: `${level}%` }}
+        transition={{ duration: 0.5, delay: 0.2 }}
+      />
     </div>
-  </div>
+  </motion.div>
 );
 
 const ProjectCard = ({ title, description, technologies, link }) => (
@@ -364,15 +442,28 @@ const ProjectCard = ({ title, description, technologies, link }) => (
       <p className="mb-4">{description}</p>
       <div className="flex flex-wrap gap-2 mb-4">
         {technologies.map((tech, index) => (
-          <span key={index} className="bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 px-2 py-1 rounded text-sm">
+          <motion.span 
+            key={index} 
+            className="bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 px-2 py-1 rounded text-sm"
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.3, delay: index * 0.1 }}
+          >
             {tech}
-          </span>
+          </motion.span>
         ))}
       </div>
       {link && (
-        <a href={link} target="_blank" rel="noopener noreferrer" className="text-blue-600 dark:text-blue-400 hover:underline">
+        <motion.a 
+          href={link} 
+          target="_blank" 
+          rel="noopener noreferrer" 
+          className="text-blue-600 dark:text-blue-400 hover:underline"
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.95 }}
+        >
           Voir le projet
-        </a>
+        </motion.a>
       )}
     </div>
   </motion.div>
