@@ -79,6 +79,42 @@
           "company": "WASCAL",
           "period": "Julio 2023 - Enero 2024",
           "description": "Recopilación y preparación de datos meteorológicos. Análisis de datos para una mejor comprensión del clima en África Occidental. Desarrollo de un sistema de predicción de temperaturas utilizando Aprendizaje Automático y Aprendizaje Profundo."
+        },
+        "five": {
+          "title": "Desarrollador Móvil",
+          "company": "Haala",
+          "period": "Abril 2023 - Mayo 2023",
+          "description": "Como parte de un proyecto doctoral, participé en el diseño y desarrollo de la aplicación móvil Haala, que busca superar la barrera del idioma entre médicos y pacientes, permitiéndoles comunicarse y entenderse a pesar de las diferencias lingüísticas."
+        },
+        "six": {
+          "title": "Desarrollador Web y Móvil",
+          "company": "SAHELYS",
+          "period": "Septiembre 2022 - Diciembre 2022",
+          "description": "Mi misión en este puesto fue desarrollar e implementar una plataforma web para la gestión de personal y sus misiones en las estructuras privadas clientes de la empresa."
+        },
+        "seven": {
+          "title": "Becario Desarrollador Web",
+          "company": "Instituto Geográfico de Burkina",
+          "period": "Septiembre 2021 - Diciembre 2021",
+          "description": "El objetivo de esta pasantía fue el análisis, diseño e implementación de un geoportal a escala nacional para la organización anfitriona. Este proyecto se realizó y fortaleció la asociación entre el IGB y la Universidad Nazi Boni."
+        },
+        "eight": {
+          "title": "Desarrollador de Software",
+          "company": "DID",
+          "period": "Junio 2021 - Julio 2021",
+          "description": "Durante mis estudios, participé en proyectos de desarrollo de software como un software de gestión escolar y un software de gestión de restaurantes."
+        },
+        "nine": {
+          "title": "Analista de Datos",
+          "company": "PROD ITE",
+          "period": "Noviembre 2019 - Agosto 2020",
+          "description": "Mis tareas en este puesto consistieron en digitalizar la información recibida de empresas recopilada en formato papel y luego realizar análisis estadísticos de estos datos para mostrar tendencias y ayudar a resolver desafíos reales."
+        },
+        "ten": {
+          "title": "Desarrollador de Software y Científico de Datos",
+          "company": "Intellectus",
+          "period": "Diciembre 2021 - Presente",
+          "description": "Intellectus es una startup tecnológica fundada con compañeros de clase. Como cofundador, gerente técnico, desarrollador de software y científico de datos, estuve a cargo de desarrollar software para clientes y socios, analizar sus datos para recomendar soluciones prometedoras y modelos de IA si es necesario para su mejor evolución."
         }
       }
     },
@@ -92,7 +128,10 @@
           "three": { "name": "PHP", "level": 90 },
           "four": { "name": "Dart", "level": 95 },
           "five": { "name": "SQL", "level": 85 },
-          "six": { "name": "R", "level": 65 }
+          "six": { "name": "R", "level": 65 },
+          "seven": { "name": "C", "level": 70 },
+          "eight": { "name": "HTML", "level": 90 },
+          "nine": { "name": "CSS", "level": 90 }
         }
       },
       "frameworksAndTools": {
@@ -103,7 +142,77 @@
           "three": { "name": "Flutter", "level": 95 },
           "four": { "name": "Django", "level": 65 },
           "five": { "name": "Power BI", "level": 75 },
-          "six": { "name": "Streamlit", "level": 90 }
+          "six": { "name": "Streamlit", "level": 90 },
+          "seven": { "name": "Bootstrap", "level": 85 },
+          "eight": { "name": "Tailwind Css", "level": 75 },
+          "nine": { "name": "Flask", "level": 70 },
+          "ten": { "name": "Dash", "level": 70 }
+        }
+      },
+      "databases": {
+        "title": "Bases de datos",
+        "skills": {
+          "one": { "name": "MySQL", "level": 90 },
+          "two": { "name": "PostgreSQL", "level": 80 },
+          "three": { "name": "SQLite", "level": 80 },
+          "four": { "name": "Oracle Database", "level": 75 },
+          "five": { "name": "MongoDB", "level": 70 },
+          "six": { "name": "Firebase Firestore", "level": 85 }
+        }
+      },
+      "toolsAndLibraries": {
+        "title": "Herramientas y bibliotecas de Python",
+        "skills": {
+          "one": { "name": "Pandas", "level": 90 },
+          "two": { "name": "Numpy", "level": 90 },
+          "three": { "name": "Matplotlib", "level": 85 },
+          "four": { "name": "Seaborn", "level": 85 },
+          "five": { "name": "OpenCV", "level": 80 },
+          "six": { "name": "Scikit-learn", "level": 85 },
+          "seven": { "name": "TensorFlow", "level": 80 },
+          "eight": { "name": "PyTorch", "level": 75 },
+          "nine": { "name": "Xarray", "level": 70 }
+        }
+      },
+      "designAndPrototyping": {
+        "title": "Diseño y prototipado",
+        "skills": {
+          "one": { "name": "Adobe XD", "level": 85 },
+          "two": { "name": "Figma", "level": 80 },
+          "three": { "name": "Photoshop", "level": 75 },
+          "four": { "name": "Illustrator", "level": 70 }
+        }
+      },
+      "operatingSystems": {
+        "title": "Sistemas operativos",
+        "skills": {
+          "one": { "name": "Windows", "level": 90 },
+          "two": { "name": "Ubuntu", "level": 85 },
+          "three": { "name": "Kali Linux", "level": 75 }
+        }
+      },
+      "officeAndCollaborationTools": {
+        "title": "Herramientas de oficina y colaboración",
+        "skills": {
+          "one": { "name": "Microsoft Office", "level": 90 },
+          "two": { "name": "Google Workspace", "level": 85 },
+          "three": { "name": "LibreOffice", "level": 80 },
+          "four": { "name": "Git & GitHub", "level": 85 },
+          "five": { "name": "Jira", "level": 80 }
+        }
+      },
+      "gis": {
+        "title": "Sistemas de información geográfica",
+        "skills": {
+          "one": { "name": "ArcGIS", "level": 75 },
+          "two": { "name": "QGIS", "level": 80 }
+        }
+      },
+      "virtualization": {
+        "title": "Herramientas de virtualización",
+        "skills": {
+          "one": { "name": "VirtualBox", "level": 80 },
+          "two": { "name": "VMWare", "level": 75 }
         }
       }
     },
@@ -142,6 +251,45 @@
           "description": "Red social profesional móvil con mensajería instantánea y compartición de oportunidades.",
           "technologies": ["Dart", "Flutter", "Firebase"],
           "link": "https://bit.ly/3VTOmdI"
+        },
+        "seven": {
+            "title": "GPS Móvil",
+            "description": "Aplicación móvil GPS para capturar las coordenadas de puntos, líneas o polígonos como un GPS profesional.",
+            "technologies": ["Dart", "Flutter", "Firebase"],
+            "link": "https://github.com/mrtapsoba/GPS_mobile"
+        },
+        "eight": {
+            "title": "Tontina Moderna",
+            "description": "Plataforma web para gestionar los fondos de tontina y mantener informados a los participantes.",
+            "technologies": ["HTML", "CSS", "Bootstrap", "PHP", "Laravel", "MySQL"]
+        },
+        "nine": {
+            "title": "App Analpha",
+            "description": "Aplicación móvil para gestionar contactos de personas analfabetas, permitiendo la creación de contactos fácilmente y llamarlas.",
+            "technologies": ["Dart", "Flutter", "Firebase"],
+            "link": "https://github.com/mrtapsoba/appanalpha"
+        },
+        "ten": {
+            "title": "Geoportal",
+            "description": "Plataforma web para crear, procesar y visualizar mapas a escala nacional para Burkina Faso.",
+            "technologies": ["HTML", "CSS", "PHP", "Laravel", "MySQL"],
+            "link": "https://github.com/mrtapsoba/geoportail"
+        },
+        "eleven": {
+            "title": "Basin Gap",
+            "description": "Preparación y análisis de los datos de cuenca de WASCAL para identificar periodos faltantes y anomalías.",
+            "technologies": ["Python", "Jupyter Notebook"]
+        },
+        "twelve": {
+            "title": "Proyecto Terreno",
+            "description": "Interfaz simple para calcular áreas para proyectos de desarrollo y plantación asignados a socios por WASCAL.",
+            "technologies": ["Python", "Streamlit"],
+            "link": "https://github.com/mrtapsoba/Terrain_Projet"
+        },
+        "thirteen": {
+            "title": "Parque Nacional Medio Bafing",
+            "description": "Análisis de los datos climáticos en la región del parque en Guinea, seguido de una revisión de la literatura sobre soluciones basadas en la naturaleza (NbS) que favorecen a las mujeres y niñas.",
+            "technologies": ["Python", "Jupyter Notebook"]
         }
       }
     },

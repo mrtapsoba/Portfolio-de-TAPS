@@ -375,6 +375,42 @@ function Portfolio() {
                 period={t('experience.jobs.four.period')}
                 description={t('experience.jobs.four.description')}
               />
+              <ExperienceItem 
+                title={t('experience.jobs.five.title')}
+                company={t('experience.jobs.five.company')}
+                period={t('experience.jobs.five.period')}
+                description={t('experience.jobs.five.description')}
+              />
+              <ExperienceItem 
+                title={t('experience.jobs.six.title')}
+                company={t('experience.jobs.six.company')}
+                period={t('experience.jobs.six.period')}
+                description={t('experience.jobs.six.description')}
+              />
+              <ExperienceItem 
+                title={t('experience.jobs.seven.title')}
+                company={t('experience.jobs.seven.company')}
+                period={t('experience.jobs.seven.period')}
+                description={t('experience.jobs.seven.description')}
+              />
+              <ExperienceItem 
+                title={t('experience.jobs.eight.title')}
+                company={t('experience.jobs.eight.company')}
+                period={t('experience.jobs.eight.period')}
+                description={t('experience.jobs.eight.description')}
+              />
+              <ExperienceItem 
+                title={t('experience.jobs.nine.title')}
+                company={t('experience.jobs.nine.company')}
+                period={t('experience.jobs.nine.period')}
+                description={t('experience.jobs.nine.description')}
+              />
+              <ExperienceItem 
+                title={t('experience.jobs.ten.title')}
+                company={t('experience.jobs.ten.company')}
+                period={t('experience.jobs.ten.period')}
+                description={t('experience.jobs.ten.description')}
+              />
             </div>
           </Section>
 
@@ -388,26 +424,111 @@ function Portfolio() {
               {t('skills.title')}
             </motion.h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              {/* Programming Languages */}
               <div>
-                <h3 className="text-xl font-semibold mb-4">{t('skills.programmingLanguages.title')}</h3>
+                <h3 className="text-xl font-semibold mb-4">
+                  {t('skills.programmingLanguages.title')}
+                </h3>
                 <div className="grid grid-cols-2 gap-4">
-                  <SkillBar skill={t('skills.programmingLanguages.skills.one.name')} level={t('skills.programmingLanguages.skills.one.level')} />
-                  <SkillBar skill={t('skills.programmingLanguages.skills.two.name')} level={t('skills.programmingLanguages.skills.two.level')} />
-                  <SkillBar skill={t('skills.programmingLanguages.skills.three.name')} level={t('skills.programmingLanguages.skills.three.level')} />
-                  <SkillBar skill={t('skills.programmingLanguages.skills.four.name')} level={t('skills.programmingLanguages.skills.four.level')} />
-                  <SkillBar skill={t('skills.programmingLanguages.skills.five.name')} level={t('skills.programmingLanguages.skills.five.level')} />
-                  <SkillBar skill={t('skills.programmingLanguages.skills.six.name')} level={t('skills.programmingLanguages.skills.six.level')} />
+                  {Object.values(t('skills.programmingLanguages.skills', { returnObjects: true })).map((skill, index) => (
+                    <SkillBar key={index} skill={skill.name} level={skill.level} />
+                  ))}
                 </div>
               </div>
+
+              {/* Frameworks and Tools */}
               <div>
-                <h3 className="text-xl font-semibold mb-4">{t('skills.frameworksAndTools.title')}</h3>
+                <h3 className="text-xl font-semibold mb-4">
+                  {t('skills.frameworksAndTools.title')}
+                </h3>
                 <div className="grid grid-cols-2 gap-4">
-                  <SkillBar skill={t('skills.frameworksAndTools.skills.one.name')} level={t('skills.frameworksAndTools.skills.one.level')} />
-                  <SkillBar skill={t('skills.frameworksAndTools.skills.two.name')} level={t('skills.frameworksAndTools.skills.two.level')} />
-                  <SkillBar skill={t('skills.frameworksAndTools.skills.three.name')} level={t('skills.frameworksAndTools.skills.three.level')} />
-                  <SkillBar skill={t('skills.frameworksAndTools.skills.four.name')} level={t('skills.frameworksAndTools.skills.four.level')} />
-                  <SkillBar skill={t('skills.frameworksAndTools.skills.five.name')} level={t('skills.frameworksAndTools.skills.five.level')} />
-                  <SkillBar skill={t('skills.frameworksAndTools.skills.six.name')} level={t('skills.frameworksAndTools.skills.six.level')} />
+                  {Object.values(t('skills.frameworksAndTools.skills', { returnObjects: true })).map((skill, index) => (
+                    <SkillBar key={index} skill={skill.name} level={skill.level} />
+                  ))}
+                </div>
+              </div>
+
+              {/* Databases */}
+              <div>
+                <h3 className="text-xl font-semibold mb-4">
+                  {t('skills.databases.title')}
+                </h3>
+                <div className="grid grid-cols-2 gap-4">
+                  {Object.values(t('skills.databases.skills', { returnObjects: true })).map((skill, index) => (
+                    <SkillBar key={index} skill={skill.name} level={skill.level} />
+                  ))}
+                </div>
+              </div>
+
+              {/* Python Tools and Libraries */}
+              <div>
+                <h3 className="text-xl font-semibold mb-4">
+                  {t('skills.toolsAndLibraries.title')}
+                </h3>
+                <div className="grid grid-cols-2 gap-4">
+                  {Object.values(t('skills.toolsAndLibraries.skills', { returnObjects: true })).map((skill, index) => (
+                    <SkillBar key={index} skill={skill.name} level={skill.level} />
+                  ))}
+                </div>
+              </div>
+
+              {/* Design and Prototyping */}
+              <div>
+                <h3 className="text-xl font-semibold mb-4">
+                  {t('skills.designAndPrototyping.title')}
+                </h3>
+                <div className="grid grid-cols-2 gap-4">
+                  {Object.values(t('skills.designAndPrototyping.skills', { returnObjects: true })).map((skill, index) => (
+                    <SkillBar key={index} skill={skill.name} level={skill.level} />
+                  ))}
+                </div>
+              </div>
+
+              {/* Operating Systems */}
+              <div>
+                <h3 className="text-xl font-semibold mb-4">
+                  {t('skills.operatingSystems.title')}
+                </h3>
+                <div className="grid grid-cols-2 gap-4">
+                  {Object.values(t('skills.operatingSystems.skills', { returnObjects: true })).map((skill, index) => (
+                    <SkillBar key={index} skill={skill.name} level={skill.level} />
+                  ))}
+                </div>
+              </div>
+
+              {/* Office and Collaboration Tools */}
+              <div>
+                <h3 className="text-xl font-semibold mb-4">
+                  {t('skills.officeAndCollaborationTools.title')}
+                </h3>
+                <div className="grid grid-cols-2 gap-4">
+                  {Object.values(t('skills.officeAndCollaborationTools.skills', { returnObjects: true })).map((skill, index) => (
+                    <SkillBar key={index} skill={skill.name} level={skill.level} />
+                  ))}
+                </div>
+              </div>
+
+              {/* Geographic Information Systems */}
+              <div>
+                <h3 className="text-xl font-semibold mb-4">
+                  {t('skills.gis.title')}
+                </h3>
+                <div className="grid grid-cols-2 gap-4">
+                  {Object.values(t('skills.gis.skills', { returnObjects: true })).map((skill, index) => (
+                    <SkillBar key={index} skill={skill.name} level={skill.level} />
+                  ))}
+                </div>
+              </div>
+
+              {/* Virtualization Tools */}
+              <div>
+                <h3 className="text-xl font-semibold mb-4">
+                  {t('skills.virtualization.title')}
+                </h3>
+                <div className="grid grid-cols-2 gap-4">
+                  {Object.values(t('skills.virtualization.skills', { returnObjects: true })).map((skill, index) => (
+                    <SkillBar key={index} skill={skill.name} level={skill.level} />
+                  ))}
                 </div>
               </div>
             </div>
@@ -455,6 +576,45 @@ function Portfolio() {
                 description={t('projects.list.six.description')}
                 technologies={t('projects.list.six.technologies', { returnObjects: true })}
                 link={t('projects.list.six.link')}
+              />
+              <ProjectCard
+                title={t('projects.list.seven.title')}
+                description={t('projects.list.seven.description')}
+                technologies={t('projects.list.seven.technologies', { returnObjects: true })}
+                link={t('projects.list.seven.link')}
+              />
+              <ProjectCard
+                title={t('projects.list.eight.title')}
+                description={t('projects.list.eight.description')}
+                technologies={t('projects.list.eight.technologies', { returnObjects: true })}
+              />
+              <ProjectCard
+                title={t('projects.list.nine.title')}
+                description={t('projects.list.nine.description')}
+                technologies={t('projects.list.nine.technologies', { returnObjects: true })}
+                link={t('projects.list.nine.link')}
+              />
+              <ProjectCard
+                title={t('projects.list.ten.title')}
+                description={t('projects.list.ten.description')}
+                technologies={t('projects.list.ten.technologies', { returnObjects: true })}
+                link={t('projects.list.ten.link')}
+              />
+              <ProjectCard
+                title={t('projects.list.eleven.title')}
+                description={t('projects.list.eleven.description')}
+                technologies={t('projects.list.eleven.technologies', { returnObjects: true })}
+              />
+              <ProjectCard
+                title={t('projects.list.twelve.title')}
+                description={t('projects.list.twelve.description')}
+                technologies={t('projects.list.twelve.technologies', { returnObjects: true })}
+                link={t('projects.list.twelve.link')}
+              />
+              <ProjectCard
+                title={t('projects.list.thirteen.title')}
+                description={t('projects.list.thirteen.description')}
+                technologies={t('projects.list.thirteen.technologies', { returnObjects: true })}
               />
             </div>
           </Section>
