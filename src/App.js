@@ -1,8 +1,11 @@
 import React, { createContext, useState, useContext, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { FaSun, FaMoon, FaGraduationCap, FaLaptopCode, FaTrophy, FaLinkedin, FaGithub, FaEnvelope, FaPhoneAlt, FaMapMarkerAlt, FaBars, FaTimes } from 'react-icons/fa';
+import { FaSun, FaMoon, FaGraduationCap, FaLaptopCode, FaLinkedin, FaGithub, FaEnvelope, FaPhoneAlt, FaMapMarkerAlt, FaBars, FaTimes } from 'react-icons/fa';
 import { useTranslation } from 'react-i18next';
 import i18n from './i18n';
+import emailjs from '@emailjs/browser';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 // Contexte de thème
 const ThemeContext = createContext();
@@ -133,6 +136,40 @@ function Portfolio() {
   const { t } = useTranslation();
   const { darkMode } = useTheme();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [message, setMessage] = useState("");
+
+  // Fonction pour envoyer l'email via EmailJS
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    const your_service_id = "service_jq034ia";
+    const your_template_id = "template_40szadn";
+    const your_user_id = "YtZjWPKj7z7VULtNf";
+
+    const templateParams = {
+      from_name: name,
+      from_email: email,
+      to_name: "TAPS.",
+      message: message,
+    };
+
+    emailjs
+      .send(your_service_id, your_template_id, templateParams, your_user_id)
+      .then(
+        (result) => {
+          setName('');
+          setEmail('');
+          setMessage('');
+          toast.success("Message sent successfully!");
+        },
+        (error) => {
+          toast.error("Error sending message.");
+        }
+      );
+  };
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -665,7 +702,7 @@ function Portfolio() {
             </div>
             <div>
               <h3 className="text-xl font-semibold mb-4">{t('contact.form.title')}</h3>
-              <form onSubmit={(e) => e.preventDefault()} className="space-y-4">
+              <form onSubmit={handleSubmit} className="space-y-4">
                 <div>
                   <label htmlFor="name" className="block text-sm font-medium text-gray-700 dark:text-gray-300">
                     {t('contact.form.name')}
@@ -674,6 +711,8 @@ function Portfolio() {
                     type="text"
                     id="name"
                     name="name"
+                    value={name}
+                    onChange={(e) => setName(e.target.value)}
                     className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-300 focus:ring focus:ring-blue-200 focus:ring-opacity-50 dark:bg-gray-700 dark:border-gray-600"
                     required
                   />
@@ -686,6 +725,8 @@ function Portfolio() {
                     type="email"
                     id="email"
                     name="email"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
                     className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-300 focus:ring focus:ring-blue-200 focus:ring-opacity-50 dark:bg-gray-700 dark:border-gray-600"
                     required
                   />
@@ -697,6 +738,8 @@ function Portfolio() {
                   <textarea
                     id="message"
                     name="message"
+                    value={message}
+                    onChange={(e) => setMessage(e.target.value)}
                     rows="4"
                     className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-300 focus:ring focus:ring-blue-200 focus:ring-opacity-50 dark:bg-gray-700 dark:border-gray-600"
                     required
@@ -718,6 +761,7 @@ function Portfolio() {
           <div className="container mx-auto text-center">
             {t('footer.rights')}
           </div>
+          <ToastContainer />
         </footer>
       </div>
     </div>
