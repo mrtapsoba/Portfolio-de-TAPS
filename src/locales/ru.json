@@ -20,22 +20,27 @@
         "title": "Образование",
         "certifications": {
           "one": {
-            "title": "Microsoft Certified: Power BI Data Analyst Associate",
+            "title": "Power BI: Создание и совместное использование первой панели управления",
+            "institution": "LinkedIn Learning",
+            "year": "2025"
+          },
+          "two": {
+            "title": "Сертифицировано Microsoft: Power BI Data Analyst Associate",
             "institution": "Microsoft Learn",
             "year": "2024"
           },
-          "two": {
-            "title": "Магистр наук в области данных",
-            "institution": "ECOLE SUPÉRIEURE D'INFORMATIQUE",
+          "three": {
+            "title": "Магистр по анализу данных",
+            "institution": "ВЫСШАЯ ШКОЛА ИНФОРМАТИКИ",
             "period": "2021 - 2023"
           },
-          "three": {
-            "title": "Бакалавр информационных систем",
-            "institution": "ECOLE SUPÉRIEURE D'INFORMATIQUE",
+          "four": {
+            "title": "Бакалавр по инженерии информационных систем",
+            "institution": "ВЫСШАЯ ШКОЛА ИНФОРМАТИКИ",
             "period": "2018 - 2021"
           },
-          "four": {
-            "title": "Python full stack",
+          "five": {
+            "title": "Полный стек Python",
             "institution": "Sira Labs",
             "year": "2021"
           }

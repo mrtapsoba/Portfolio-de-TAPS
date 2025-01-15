@@ -20,21 +20,26 @@
         "title": "Bildung",
         "certifications": {
           "one": {
-            "title": "Microsoft Certified: Power BI Data Analyst Associate",
+            "title": "Power BI: Erstellen und Teilen Ihres ersten Dashboards",
+            "institution": "LinkedIn Learning",
+            "year": "2025"
+          },
+          "two": {
+            "title": "Microsoft-Zertifizierung: Power BI Data Analyst Associate",
             "institution": "Microsoft Learn",
             "year": "2024"
           },
-          "two": {
-            "title": "Master of Science in Data Science",
-            "institution": "ECOLE SUPÉRIEURE D'INFORMATIQUE",
+          "three": {
+            "title": "Master in Data Science",
+            "institution": "HOCHSCHULE FÜR INFORMATIK",
             "period": "2021 - 2023"
           },
-          "three": {
-            "title": "Bachelor in Informationssystemen",
-            "institution": "ECOLE SUPÉRIEURE D'INFORMATIQUE",
+          "four": {
+            "title": "Bachelor in Ingenieurwesen der Informationssysteme",
+            "institution": "HOCHSCHULE FÜR INFORMATIK",
             "period": "2018 - 2021"
           },
-          "four": {
+          "five": {
             "title": "Python Full Stack",
             "institution": "Sira Labs",
             "year": "2021"

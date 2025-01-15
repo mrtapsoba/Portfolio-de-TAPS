@@ -20,21 +20,26 @@
         "title": "Formation",
         "certifications": {
           "one": {
+            "title": "Power BI : Créer et partager son premier tableau de bord",
+            "institution": "LinkedIn Learning",
+            "year": "2025"
+          },
+          "two": {
             "title": "Certifié Microsoft : Power BI Data Analyst Associate",
             "institution": "Microsoft Learn",
             "year": "2024"
           },
-          "two": {
+          "three": {
             "title": "Master en Data Science",
             "institution": "ÉCOLE SUPÉRIEURE D'INFORMATIQUE",
             "period": "2021 - 2023"
           },
-          "three": {
+          "four": {
             "title": "Licence en Génie des Systèmes d'Information",
             "institution": "ÉCOLE SUPÉRIEURE D'INFORMATIQUE",
             "period": "2018 - 2021"
           },
-          "four": {
+          "five": {
             "title": "Python full stack",
             "institution": "Sira Labs",
             "year": "2021"

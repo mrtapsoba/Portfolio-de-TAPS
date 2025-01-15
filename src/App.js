@@ -360,6 +360,10 @@ function Portfolio() {
                     <p className="font-semibold">{t('about.education.certifications.four.title')}</p>
                     <p>{t('about.education.certifications.four.institution')}, {t('about.education.certifications.four.year')}</p>
                   </li>
+                  <li>
+                    <p className="font-semibold">{t('about.education.certifications.five.title')}</p>
+                    <p>{t('about.education.certifications.five.institution')}, {t('about.education.certifications.five.year')}</p>
+                  </li>
                 </ul>
               </div>
               <div>

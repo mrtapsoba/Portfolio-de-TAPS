@@ -20,22 +20,27 @@
         "title": "Educación",
         "certifications": {
           "one": {
-            "title": "Microsoft Certified: Power BI Data Analyst Associate",
+            "title": "Power BI: Crear y Compartir tu Primer Panel",
+            "institution": "LinkedIn Learning",
+            "year": "2025"
+          },
+          "two": {
+            "title": "Certificación de Microsoft: Analista de Datos de Power BI Asociado",
             "institution": "Microsoft Learn",
             "year": "2024"
           },
-          "two": {
+          "three": {
             "title": "Máster en Ciencia de Datos",
-            "institution": "ECOLE SUPÉRIEURE D'INFORMATIQUE",
+            "institution": "ESCUELA SUPERIOR DE INFORMÁTICA",
             "period": "2021 - 2023"
           },
-          "three": {
-            "title": "Licenciatura en Ingeniería de Sistemas de Información",
-            "institution": "ECOLE SUPÉRIEURE D'INFORMATIQUE",
+          "four": {
+            "title": "Grado en Ingeniería de Sistemas de Información",
+            "institution": "ESCUELA SUPERIOR DE INFORMÁTICA",
             "period": "2018 - 2021"
           },
-          "four": {
-            "title": "Python full stack",
+          "five": {
+            "title": "Python Full Stack",
             "institution": "Sira Labs",
             "year": "2021"
           }
