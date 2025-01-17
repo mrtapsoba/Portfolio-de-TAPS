@@ -27,7 +27,7 @@
           "two": {
             "title": "Сертифицировано Microsoft: Power BI Data Analyst Associate",
             "institution": "Microsoft Learn",
-            "year": "2024"
+            "period": "2024"
           },
           "three": {
             "title": "Магистр по анализу данных",
@@ -37,7 +37,7 @@
           "four": {
             "title": "Бакалавр по инженерии информационных систем",
             "institution": "ВЫСШАЯ ШКОЛА ИНФОРМАТИКИ",
-            "period": "2018 - 2021"
+            "year": "2018 - 2021"
           },
           "five": {
             "title": "Полный стек Python",

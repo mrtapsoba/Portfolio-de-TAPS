@@ -767,3 +767,127 @@ Before we get started, keep in mind:
 [info] 
 [info] Project Console: https://console.firebase.google.com/project/taps-portfolio/overview
 [info] Hosting URL: https://taps-portfolio.web.app
+[debug] [2025-01-15T00:15:23.455Z] ----------------------------------------------------------------------
+[debug] [2025-01-15T00:15:23.458Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\Mr TAPS\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js deploy
+[debug] [2025-01-15T00:15:23.458Z] CLI Version:   13.29.1
+[debug] [2025-01-15T00:15:23.458Z] Platform:      win32
+[debug] [2025-01-15T00:15:23.458Z] Node Version:  v20.18.1
+[debug] [2025-01-15T00:15:23.458Z] Time:          Wed Jan 15 2025 00:15:23 GMT+0000 (temps universel coordonné)
+[debug] [2025-01-15T00:15:23.458Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2025-01-15T00:15:23.463Z] >>> [apiv2][query] GET https://firebase-public.firebaseio.com/cli.json [none]
+[debug] [2025-01-15T00:15:23.608Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2025-01-15T00:15:23.610Z] > authorizing via signed-in user (ktapsoba80@gmail.com)
+[debug] [2025-01-15T00:15:23.611Z] [iam] checking project taps-portfolio for permissions ["firebase.projects.get","firebasehosting.sites.update"]
+[debug] [2025-01-15T00:15:23.612Z] Checked if tokens are valid: false, expires at: 1736376961336
+[debug] [2025-01-15T00:15:23.613Z] Checked if tokens are valid: false, expires at: 1736376961336
+[debug] [2025-01-15T00:15:23.614Z] > refreshing access token with scopes: []
+[debug] [2025-01-15T00:15:23.616Z] >>> [apiv2][query] POST https://www.googleapis.com/oauth2/v3/token [none]
+[debug] [2025-01-15T00:15:23.617Z] >>> [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2025-01-15T00:15:24.020Z] <<< [apiv2][status] POST https://www.googleapis.com/oauth2/v3/token 200
+[debug] [2025-01-15T00:15:24.020Z] <<< [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2025-01-15T00:15:24.032Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/taps-portfolio:testIamPermissions [none]
+[debug] [2025-01-15T00:15:24.032Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/taps-portfolio:testIamPermissions x-goog-quota-user=projects/taps-portfolio
+[debug] [2025-01-15T00:15:24.033Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/taps-portfolio:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2025-01-15T00:15:24.133Z] <<< [apiv2][status] GET https://firebase-public.firebaseio.com/cli.json 200
+[debug] [2025-01-15T00:15:24.134Z] <<< [apiv2][body] GET https://firebase-public.firebaseio.com/cli.json {"cloudBuildErrorAfter":1594252800000,"cloudBuildWarnAfter":1590019200000,"defaultNode10After":1594252800000,"minVersion":"3.0.5","node8DeploysDisabledAfter":1613390400000,"node8RuntimeDisabledAfter":1615809600000,"node8WarnAfter":1600128000000}
+[debug] [2025-01-15T00:15:24.954Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/taps-portfolio:testIamPermissions 200
+[debug] [2025-01-15T00:15:24.955Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/taps-portfolio:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2025-01-15T00:15:24.958Z] Checked if tokens are valid: true, expires at: 1736903723021
+[debug] [2025-01-15T00:15:24.959Z] Checked if tokens are valid: true, expires at: 1736903723021
+[debug] [2025-01-15T00:15:24.960Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/taps-portfolio [none]
+[debug] [2025-01-15T00:15:25.480Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/taps-portfolio 200
+[debug] [2025-01-15T00:15:25.481Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/taps-portfolio {"projectId":"taps-portfolio","projectNumber":"742531799895","displayName":"TAPS Portfolio","name":"projects/taps-portfolio","resources":{"hostingSite":"taps-portfolio"},"state":"ACTIVE","etag":"1_3d71e2b0-61b4-4651-b8ed-b3d39e682608"}
+[info] 
+[info] === Deploying to 'taps-portfolio'...
+[info] 
+[info] i  deploying hosting 
+[debug] [2025-01-15T00:15:25.492Z] Checked if tokens are valid: true, expires at: 1736903723021
+[debug] [2025-01-15T00:15:25.493Z] Checked if tokens are valid: true, expires at: 1736903723021
+[debug] [2025-01-15T00:15:25.493Z] >>> [apiv2][query] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/taps-portfolio/versions [none]
+[debug] [2025-01-15T00:15:25.494Z] >>> [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/taps-portfolio/versions {"status":"CREATED","labels":{"deployment-tool":"cli-firebase"}}
+[debug] [2025-01-15T00:15:27.313Z] <<< [apiv2][status] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/taps-portfolio/versions 200
+[debug] [2025-01-15T00:15:27.314Z] <<< [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/taps-portfolio/versions {"name":"projects/742531799895/sites/taps-portfolio/versions/eef10611e90e6746","status":"CREATED","config":{},"labels":{"deployment-tool":"cli-firebase"}}
+[info] i  hosting[taps-portfolio]: beginning deploy... 
+[info] i  hosting[taps-portfolio]: found 20 files in build 
+[debug] [2025-01-15T00:15:27.355Z] [hosting] uploading with 200 concurrency
+[debug] [2025-01-15T00:15:27.586Z] Checked if tokens are valid: true, expires at: 1736903723021
+[debug] [2025-01-15T00:15:27.587Z] Checked if tokens are valid: true, expires at: 1736903723021
+[debug] [2025-01-15T00:15:27.589Z] [hosting] hash cache [YnVpbGQ] stored for 20 files
+[debug] [2025-01-15T00:15:27.589Z] [hosting][hash queue][FINAL] {"max":226,"min":0,"avg":16.1,"active":0,"complete":20,"success":20,"errored":0,"retried":0,"total":20,"elapsed":232}
+[debug] [2025-01-15T00:15:27.590Z] >>> [apiv2][query] POST https://firebasehosting.googleapis.com/v1beta1/projects/742531799895/sites/taps-portfolio/versions/eef10611e90e6746:populateFiles [none]
+[debug] [2025-01-15T00:15:27.590Z] >>> [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/742531799895/sites/taps-portfolio/versions/eef10611e90e6746:populateFiles {"files":{"/robots.txt":"bfe106a3fb878dc83461c86818bf74fc1bdc7f28538ba613cd3e775516ce8b49","/manifest.json":"ee04fb47e525c67d8424ffe9b4d8a8a24e434504478afca4e0ca602146836d4c","/logo512.png":"212b102aa09e51b3b3e06647e81f7801a61333e171f6582e8124379aabccb41d","/logo192.png":"79e2b749561016bc8af300ea19f48347ceed3cb1a54f48ae456172eca45e08f0","/favicon.ico":"27edce7be5922cf0bef7d4136f69b5bfbdd5bf8c13c7b026f71187d41a00aa7d","/assets/weather-app.jpg":"46b50c321b39e89a491b6727a01628c34245605a30beb3e7414c5e01cff90e6e","/assets/taps_profile.jpg":"c5321a273dfb11ab9ccda67341dd54f887b85f481b60925269b35027f8d8105f","/assets/tapsoba_akader.jpg":"f48dc40dd27f7029e167ff82943769ec99d6bbf3567dff8a64409a476306a1a2","/assets/profile.jpg":"46b50c321b39e89a491b6727a01628c34245605a30beb3e7414c5e01cff90e6e","/assets/power-bi.jpg":"46b50c321b39e89a491b6727a01628c34245605a30beb3e7414c5e01cff90e6e","/assets/canada-app.jpg":"46b50c321b39e89a491b6727a01628c34245605a30beb3e7414c5e01cff90e6e","/index.html":"fb0431c7fe2adc3d19caa25287ca7259a0c34ced8387ca688fb5a75a7414e5fa","/asset-manifest.json":"b27ffdd39d460e1c2247568a9b433af951c173e7db0472d372e52236f9f9057e","/static/js/main.98b33f8b.js.LICENSE.txt":"b66096bc0aff35730d07b1276c55f0fb447bf3b2fb7350efa7660b2a5145f6f1","/static/css/main.6e08896e.css.map":"d9ff20a7221530ddcaeb910ac174d2affcf95d333043572e04cb46da7a4bce32","/static/js/488.cfc9bd55.chunk.js.map":"ca96db2f92e29dbea742eadaa0f9b065eb3165bcfd06848f2778882235552498","/static/css/main.6e08896e.css":"357f81e20bb57596778614853df153bbb1156c2ecb8ee7a29faed556607017ce","/static/js/488.cfc9bd55.chunk.js":"0e48df0717e89a132cb68556a8efec71c1377548b463cda6bbebed76f794b1e8","/static/js/main.98b33f8b.js":"418136ff68b133db71bae0f6fd9ddd87aed2732098c624915c40187294687148","/static/js/main.98b33f8b.js.map":"207bd5b7facedba51a3feef07366b6ffa51f77e0f40b4060a4ee9917a539d4a4"}}
+[debug] [2025-01-15T00:15:27.982Z] <<< [apiv2][status] POST https://firebasehosting.googleapis.com/v1beta1/projects/742531799895/sites/taps-portfolio/versions/eef10611e90e6746:populateFiles 200
+[debug] [2025-01-15T00:15:27.982Z] <<< [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/742531799895/sites/taps-portfolio/versions/eef10611e90e6746:populateFiles {"uploadRequiredHashes":["207bd5b7facedba51a3feef07366b6ffa51f77e0f40b4060a4ee9917a539d4a4","fb0431c7fe2adc3d19caa25287ca7259a0c34ced8387ca688fb5a75a7414e5fa","418136ff68b133db71bae0f6fd9ddd87aed2732098c624915c40187294687148","b27ffdd39d460e1c2247568a9b433af951c173e7db0472d372e52236f9f9057e"],"uploadUrl":"https://upload-firebasehosting.googleapis.com/upload/sites/taps-portfolio/versions/eef10611e90e6746/files"}
+[debug] [2025-01-15T00:15:27.984Z] Checked if tokens are valid: true, expires at: 1736903723021
+[debug] [2025-01-15T00:15:27.984Z] Checked if tokens are valid: true, expires at: 1736903723021
+[debug] [2025-01-15T00:15:27.985Z] Checked if tokens are valid: true, expires at: 1736903723021
+[debug] [2025-01-15T00:15:27.986Z] Checked if tokens are valid: true, expires at: 1736903723021
+[debug] [2025-01-15T00:15:27.986Z] Checked if tokens are valid: true, expires at: 1736903723021
+[debug] [2025-01-15T00:15:27.987Z] Checked if tokens are valid: true, expires at: 1736903723021
+[debug] [2025-01-15T00:15:27.987Z] Checked if tokens are valid: true, expires at: 1736903723021
+[debug] [2025-01-15T00:15:27.988Z] Checked if tokens are valid: true, expires at: 1736903723021
+[debug] [2025-01-15T00:15:27.989Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/taps-portfolio/versions/eef10611e90e6746/files/207bd5b7facedba51a3feef07366b6ffa51f77e0f40b4060a4ee9917a539d4a4 [none]
+[debug] [2025-01-15T00:15:27.989Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/taps-portfolio/versions/eef10611e90e6746/files/207bd5b7facedba51a3feef07366b6ffa51f77e0f40b4060a4ee9917a539d4a4 [stream]
+[debug] [2025-01-15T00:15:27.992Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/taps-portfolio/versions/eef10611e90e6746/files/fb0431c7fe2adc3d19caa25287ca7259a0c34ced8387ca688fb5a75a7414e5fa [none]
+[debug] [2025-01-15T00:15:27.993Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/taps-portfolio/versions/eef10611e90e6746/files/fb0431c7fe2adc3d19caa25287ca7259a0c34ced8387ca688fb5a75a7414e5fa [stream]
+[debug] [2025-01-15T00:15:27.995Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/taps-portfolio/versions/eef10611e90e6746/files/418136ff68b133db71bae0f6fd9ddd87aed2732098c624915c40187294687148 [none]
+[debug] [2025-01-15T00:15:27.996Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/taps-portfolio/versions/eef10611e90e6746/files/418136ff68b133db71bae0f6fd9ddd87aed2732098c624915c40187294687148 [stream]
+[debug] [2025-01-15T00:15:27.998Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/taps-portfolio/versions/eef10611e90e6746/files/b27ffdd39d460e1c2247568a9b433af951c173e7db0472d372e52236f9f9057e [none]
+[debug] [2025-01-15T00:15:27.999Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/taps-portfolio/versions/eef10611e90e6746/files/b27ffdd39d460e1c2247568a9b433af951c173e7db0472d372e52236f9f9057e [stream]
+[debug] [2025-01-15T00:15:28.002Z] [hosting][populate queue][FINAL] {"max":402,"min":402,"avg":402,"active":0,"complete":1,"success":1,"errored":0,"retried":0,"total":1,"elapsed":416}
+[debug] [2025-01-15T00:15:28.003Z] [hosting] uploads queued: 4
+[debug] [2025-01-15T00:15:29.877Z] <<< [apiv2][status] POST https://upload-firebasehosting.googleapis.com/upload/sites/taps-portfolio/versions/eef10611e90e6746/files/fb0431c7fe2adc3d19caa25287ca7259a0c34ced8387ca688fb5a75a7414e5fa 200
+[debug] [2025-01-15T00:15:29.878Z] <<< [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/taps-portfolio/versions/eef10611e90e6746/files/fb0431c7fe2adc3d19caa25287ca7259a0c34ced8387ca688fb5a75a7414e5fa [stream]
+[debug] [2025-01-15T00:15:30.028Z] <<< [apiv2][status] POST https://upload-firebasehosting.googleapis.com/upload/sites/taps-portfolio/versions/eef10611e90e6746/files/b27ffdd39d460e1c2247568a9b433af951c173e7db0472d372e52236f9f9057e 200
+[debug] [2025-01-15T00:15:30.029Z] <<< [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/taps-portfolio/versions/eef10611e90e6746/files/b27ffdd39d460e1c2247568a9b433af951c173e7db0472d372e52236f9f9057e [stream]
+[debug] [2025-01-15T00:15:30.150Z] <<< [apiv2][status] POST https://upload-firebasehosting.googleapis.com/upload/sites/taps-portfolio/versions/eef10611e90e6746/files/418136ff68b133db71bae0f6fd9ddd87aed2732098c624915c40187294687148 200
+[debug] [2025-01-15T00:15:30.151Z] <<< [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/taps-portfolio/versions/eef10611e90e6746/files/418136ff68b133db71bae0f6fd9ddd87aed2732098c624915c40187294687148 [stream]
+[debug] [2025-01-15T00:15:30.676Z] <<< [apiv2][status] POST https://upload-firebasehosting.googleapis.com/upload/sites/taps-portfolio/versions/eef10611e90e6746/files/207bd5b7facedba51a3feef07366b6ffa51f77e0f40b4060a4ee9917a539d4a4 200
+[debug] [2025-01-15T00:15:30.677Z] <<< [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/taps-portfolio/versions/eef10611e90e6746/files/207bd5b7facedba51a3feef07366b6ffa51f77e0f40b4060a4ee9917a539d4a4 [stream]
+[debug] [2025-01-15T00:15:30.678Z] [hosting][upload queue][FINAL] {"max":2695,"min":1895,"avg":2199.75,"active":0,"complete":4,"success":4,"errored":0,"retried":0,"total":4,"elapsed":2695}
+[info] +  hosting[taps-portfolio]: file upload complete 
+[debug] [2025-01-15T00:15:30.682Z] [hosting] deploy completed after 3354ms
+[debug] [2025-01-15T00:15:30.683Z] [
+  {
+    "config": {
+      "public": "build",
+      "ignore": [
+        "firebase.json",
+        "**/.*",
+        "**/node_modules/**"
+      ],
+      "rewrites": [
+        {
+          "source": "**",
+          "destination": "/index.html"
+        }
+      ],
+      "site": "taps-portfolio"
+    },
+    "version": "projects/742531799895/sites/taps-portfolio/versions/eef10611e90e6746"
+  }
+]
+[info] i  hosting[taps-portfolio]: finalizing version... 
+[debug] [2025-01-15T00:15:30.692Z] Checked if tokens are valid: true, expires at: 1736903723021
+[debug] [2025-01-15T00:15:30.692Z] Checked if tokens are valid: true, expires at: 1736903723021
+[debug] [2025-01-15T00:15:30.695Z] >>> [apiv2][query] PATCH https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/taps-portfolio/versions/eef10611e90e6746 updateMask=status%2Cconfig
+[debug] [2025-01-15T00:15:30.696Z] >>> [apiv2][body] PATCH https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/taps-portfolio/versions/eef10611e90e6746 {"status":"FINALIZED","config":{"rewrites":[{"glob":"**","path":"/index.html"}]}}
+[debug] [2025-01-15T00:15:31.078Z] <<< [apiv2][status] PATCH https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/taps-portfolio/versions/eef10611e90e6746 200
+[debug] [2025-01-15T00:15:31.080Z] <<< [apiv2][body] PATCH https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/taps-portfolio/versions/eef10611e90e6746 {"name":"projects/742531799895/sites/taps-portfolio/versions/eef10611e90e6746","status":"FINALIZED","config":{"rewrites":[{"glob":"**","path":"/index.html"}]},"labels":{"deployment-tool":"cli-firebase"},"createTime":"2025-01-15T00:15:27.420236Z","createUser":{"email":"KTapsoba80@gmail.com"},"finalizeTime":"2025-01-15T00:15:31.444387Z","finalizeUser":{"email":"KTapsoba80@gmail.com"}}
+[debug] [2025-01-15T00:15:31.082Z] [hosting] finalized version for taps-portfolio:[object Object]
+[info] +  hosting[taps-portfolio]: version finalized 
+[info] i  hosting[taps-portfolio]: releasing new version... 
+[debug] [2025-01-15T00:15:31.086Z] Checked if tokens are valid: true, expires at: 1736903723021
+[debug] [2025-01-15T00:15:31.087Z] Checked if tokens are valid: true, expires at: 1736903723021
+[debug] [2025-01-15T00:15:31.092Z] >>> [apiv2][query] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/taps-portfolio/channels/live/releases versionName=projects%2F742531799895%2Fsites%2Ftaps-portfolio%2Fversions%2Feef10611e90e6746
+[debug] [2025-01-15T00:15:31.094Z] >>> [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/taps-portfolio/channels/live/releases {}
+[debug] [2025-01-15T00:15:31.481Z] <<< [apiv2][status] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/taps-portfolio/channels/live/releases 200
+[debug] [2025-01-15T00:15:31.483Z] <<< [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/taps-portfolio/channels/live/releases {"name":"projects/742531799895/sites/taps-portfolio/channels/live/releases/1736900131292000","version":{"name":"projects/742531799895/sites/taps-portfolio/versions/eef10611e90e6746","status":"FINALIZED","config":{"rewrites":[{"glob":"**","path":"/index.html"}]},"labels":{"deployment-tool":"cli-firebase"},"createTime":"2025-01-15T00:15:27.420236Z","createUser":{"email":"KTapsoba80@gmail.com","imageUrl":"https://lh3.googleusercontent.com/a/ACg8ocJt6jGZ7k1Rtn0No3NN3qeFughS8QMSIkipfBylM5iPruT3YZQp"},"finalizeTime":"2025-01-15T00:15:31.444387Z","finalizeUser":{"email":"KTapsoba80@gmail.com","imageUrl":"https://lh3.googleusercontent.com/a/ACg8ocJt6jGZ7k1Rtn0No3NN3qeFughS8QMSIkipfBylM5iPruT3YZQp"}},"type":"DEPLOY","releaseTime":"2025-01-15T00:15:31.292Z","releaseUser":{"email":"KTapsoba80@gmail.com","imageUrl":"https://lh3.googleusercontent.com/a/ACg8ocJt6jGZ7k1Rtn0No3NN3qeFughS8QMSIkipfBylM5iPruT3YZQp"}}
+[debug] [2025-01-15T00:15:31.485Z] [hosting] release: {"name":"projects/742531799895/sites/taps-portfolio/channels/live/releases/1736900131292000","version":{"name":"projects/742531799895/sites/taps-portfolio/versions/eef10611e90e6746","status":"FINALIZED","config":{"rewrites":[{"glob":"**","path":"/index.html"}]},"labels":{"deployment-tool":"cli-firebase"},"createTime":"2025-01-15T00:15:27.420236Z","createUser":{"email":"KTapsoba80@gmail.com","imageUrl":"https://lh3.googleusercontent.com/a/ACg8ocJt6jGZ7k1Rtn0No3NN3qeFughS8QMSIkipfBylM5iPruT3YZQp"},"finalizeTime":"2025-01-15T00:15:31.444387Z","finalizeUser":{"email":"KTapsoba80@gmail.com","imageUrl":"https://lh3.googleusercontent.com/a/ACg8ocJt6jGZ7k1Rtn0No3NN3qeFughS8QMSIkipfBylM5iPruT3YZQp"}},"type":"DEPLOY","releaseTime":"2025-01-15T00:15:31.292Z","releaseUser":{"email":"KTapsoba80@gmail.com","imageUrl":"https://lh3.googleusercontent.com/a/ACg8ocJt6jGZ7k1Rtn0No3NN3qeFughS8QMSIkipfBylM5iPruT3YZQp"}}
+[info] +  hosting[taps-portfolio]: release complete 
+[info] 
+[info] +  Deploy complete! 
+[info] 
+[info] Project Console: https://console.firebase.google.com/project/taps-portfolio/overview
+[info] Hosting URL: https://taps-portfolio.web.app

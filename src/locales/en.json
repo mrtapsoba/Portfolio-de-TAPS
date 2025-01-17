@@ -27,7 +27,7 @@
         "two": {
           "title": "Microsoft Certified: Power BI Data Analyst Associate",
           "institution": "Microsoft Learn",
-          "year": "2024"
+          "period": "2024"
         },
         "three": {
           "title": "Master's in Data Science",
@@ -37,7 +37,7 @@
         "four": {
           "title": "Bachelor's in Information Systems Engineering",
           "institution": "HIGHER SCHOOL OF COMPUTER SCIENCE",
-          "period": "2018 - 2021"
+          "year": "2018 - 2021"
         },
         "five": {
           "title": "Python Full Stack",
